@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://tw.ncsoft.com/bns/index -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./index_files/sdk.js.下載" async="" crossorigin="anonymous"></script>
+
+<meta http-equiv="content-language" content="zh-TW">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="language" content="Chinese - Taiwan">
+<meta name="title" content="台灣劍靈官方網站"> 
+<meta name="description " content="2014年台灣最受期待線上遊戲『劍靈』，華麗的美術風格與流暢的動作，加上如電影般震撼的劇情，絕對是您不能錯過的東方武俠MMO。"> 
+<meta name="keywords" content="劍靈、遊戲、MMO、武俠、RPG、OB、吉恩立、NCSOFT、龍銀、BNS"> 
+<meta name="copyright" content=" Copyright@NCSOFT Corporation. All Rights Reserved">
+
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="劍靈-台灣官方網站">
+<meta property="og:description" content="【劍靈】完美細膩的視覺呈現，突破傳統的戰鬥技巧，自由操控的真實體驗，電影震撼般的故事劇情，任何細節都讓你身歷其境，萬眾期待！最夯的網路遊戲！">
+<meta property="og:image" content="http://image.tw.ncsoft.com/bns/pc/new/common/fbImg.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="403">
+<meta property="og:image:height" content="403">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://tw.ncsoft.com/bns/index.nc">
+
+<link rel="stylesheet" href="./index_files/common.css" type="text/css">
+<link rel="stylesheet" href="./index_files/basic.css" type="text/css">
+<link rel="SHORTCUT ICON" href="http://image.tw.ncsoft.com/bns/pc/common/bns.ico">
+<script id="facebook-jssdk" src="./index_files/sdk.js(1).下載"></script><script async="" src="./index_files/analytics.js.下載"></script><script src="./index_files/jquery-1.11.0.min.js.下載"></script>
+<script src="./index_files/common.js.下載"></script>
+<script src="./index_files/modernizr-2.6.2.min.js.下載"></script>
+
+<script src="./index_files/twGnb.min.js.下載"></script>
+
+<script src="./index_files/commonParts.js.下載"></script>
+<script src="./index_files/common.js(1).下載"></script>
+<script src="./index_files/common.js(2).下載"></script>
+
+<script type="text/javascript">
+var mobileFlag = '0';
+var G_STATIC_SERVER = 'http://tw.ncsoft.com/static';
+var G_IMAGE_SERVER = 'http://image.tw.ncsoft.com';
+</script>
+
+<!-- Unique Definitions start (Title, Discription, External CSS and JS file, CSS) -->
+<title>劍靈-台灣官方網站</title>
+<script src="./index_files/mainBanner.js.下載"></script>
+<script src="./index_files/jquery.cookie.js.下載"></script>
+<script>
+    var i = 0;
+    function onDCLoaded(){
+
+        if(mainNotice != null && mainNotice != undefined && mainNotice != 'null' && mainNotice != 'undefined'){
+            var max = (mainNotice.length > 6) ? 6 : mainNotice.length;
+            for(i = 0 ; i < max ; i++){
+                if(mainNotice[i].isPopUp) {
+                    jQuery("#notice").append("<li>" +
+                                    "<span class='nobr'><a href='"+mainNotice[i].linkUrl+"' title='"+mainNotice[i].title+"' target='_blank'>"+mainNotice[i].title+"</a></span>" +
+                                  "</li>");
+                }else{
+                    jQuery("#notice").append("<li>" +
+                                    "<span class='nobr'><a href='"+mainNotice[i].linkUrl+"' title='"+mainNotice[i].title+"'>"+mainNotice[i].title+"</a></span>" +
+                                  "</li>");
+                }
+            }
+        }
+
+        if(mainCommunity != null && mainCommunity != undefined && mainCommunity != 'null' && mainCommunity != 'undefined'){
+            var max = (mainCommunity.length > 6) ? 6 : mainCommunity.length;
+            for(i = 0 ; i < max ; i++){
+                if(mainCommunity[i].isPopUp) {
+                    jQuery("#community").append("<li>" +
+                                    "<a href='"+mainCommunity[i].linkUrl+"' title='"+mainCommunity[i].title+"' target='_blank'>"+mainCommunity[i].title+"</a><span class='date'>"+mainCommunity[i].summary+"</span>" +
+                                  "</li>");
+                }else{
+                    jQuery("#community").append("<li>" +
+                                    "<a href='"+mainCommunity[i].linkUrl+"' title='"+mainCommunity[i].title+"'>"+mainCommunity[i].title+"</a><span class='date'>"+mainCommunity[i].summary+"</span>" +
+                                  "</li>");
+                }
+            }
+        }
+
+        if(mainEvent != null && mainEvent != undefined && mainEvent != 'null' && mainEvent != 'undefined'){
+            var max = (mainEvent.length > 6) ? 6 : mainEvent.length;
+            for(i = 0 ; i < max ; i++){
+                if(mainEvent[i].isPopUp) {
+                    jQuery("#imageboard").append("<li><div class='block'><div class='thumb'>" +
+                        "<a href='"+mainEvent[i].linkUrl+"' title='"+mainEvent[i].title+"' target='_blank'><img src="+mainEvent[i].imageUrl+"></a></div>" +
+                        "<em><a href='"+mainEvent[i].linkUrl+"' title='"+mainEvent[i].title+"'>"+mainEvent[i].title+"</a><em>" +
+                        "<ul><li class='nickname' title='"+mainEvent[i].summary+"'>"+mainEvent[i].summary+"</ul>");
+                }else{
+                    jQuery("#imageboard").append("<li><div class='block'><div class='thumb'>" +
+                        "<a href='"+mainEvent[i].linkUrl+"' title='"+mainEvent[i].title+"' ><img src="+mainEvent[i].imageUrl+"></a></div>" +
+                        "<em><a href='"+mainEvent[i].linkUrl+"' title='"+mainEvent[i].title+"'>"+mainEvent[i].title+"</a><em>" +
+                        "<ul><li class='nickname' title='"+mainEvent[i].summary+"'>"+mainEvent[i].summary+"</ul>");
+                }
+            }
+        }
+    }
+
+</script>
+<script src="./index_files/f.txt"></script><style type="text/css"></style><link rel="stylesheet" type="text/css" href="./index_files/nctGnb.css"><script src="./index_files/f(1).txt"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:15px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:19px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:13px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:13px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:17px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+
+<body style="">
+<div id="nctGnb"><!--<div class="gnbMini"><p class="logo ncsoft">ncsoft</p></div>--><div class="ncGnb"> <div class="wrap"> <ul class="gnbLeft"> <li class="logo ncsoft"><a href="http://tw.ncsoft.com/" title="NCSOFT">NCSOFT</a></li> <li id="gnbBtnGameList" class="btnList"><span>遊戲選擇</span></li> <!-- on --> </ul> <div class="gnbMenu">  <div class="menu"> <ul>  <li> <a href="https://tw.ncsoft.com/ap/wb/signup/email/join">免費註冊</a> </li>  <li> <a href="https://tw.ncsoft.com/nshop/myaccount/applyacode"> <span>酷碰專區</span> </a> </li> <li> <a href="https://tw.ncsoft.com/faq/contactUs"> 客服中心 <em class="gnbNotify" style="display:none;">N</em> </a> </li>  <li> <a href="https://tw.ncsoft.com/login/signin?return_url=http%3A%2F%2Ftw.ncsoft.com%2Fbns%2Findex">登入</a> </li>  </ul> </div> </div> </div> <div id="gnbGameList" class="gnb-games" style="display:none;"> <div class="list-container"> <div class="pc"> <p class="title">PC遊戲</p> <ul> <li class="game bns"> <a href="http://tw.ncsoft.com/bns"><span class="thumb"></span>劍靈</a> </li> <li class="game aion"> <a href="http://tw.ncsoft.com/aion"><span class="thumb"></span>AION</a> </li> <li class="game lineage2"> <a href="http://tw.ncsoft.com/lineage2/"><span class="thumb"></span>新天堂II</a> </li> </ul> </div> <div class="mobile"> <p class="title">Mobile遊戲</p> <ul> <li class="game irism"> <a href="http://tw.nc.com/irism" target="_blank"><span class="thumb"></span>瞳光 IRIS M</a> </li> </ul> </div> </div> </div></div></div>
+<div id="contentArea">
+		        <div id="content">
+
+                <div class="homePage">
+
+                        <div class="spacer"></div>
+            
+                        <div id="spBnrSection">
+
+                                <div id="spBnrSectionNull1" class="">
+
+                                        <div id="spBnrSectionNull2">
+
+                                                <div class="bgImgWrap listWrap" style="left: 12.075px;">
+                            <ul class="bgImg" style="width: 2400px; top: 0px;">
+                            <li style="left: -50%; top: 0px;"><img src="./index_files/01_bg_135932.jpg"></li><li style="left: -50%; top: 500px;"><img src="./index_files/01_bg__101905.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_095553.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_093507.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_093558.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_095104.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_100941.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_100710.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_103312.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_103403.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_103442.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_103521.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_103559.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_140303.jpg"></li><li style="left: -200%;"><img src="./index_files/01_bg_Update_101657.jpg"></li><li style="left: -50%; top: -500px;"><img src="./index_files/01_bg__102751.jpg"></li></ul>
+                        </div>
+                        
+                                                <div class="charaImgWrap listWrap" style="left: 36.225px;">
+                            <ul class="charaImg" style="right: 0px;">
+                            <li style="top: 0px; right: 0px;"><img src="./index_files/02_charater_135932.png"></li><li style="top: 0px; right: 1903px;"><img src="./index_files/02_charater__101905.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_095553.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_093507.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_093558.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_095105.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_100941.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_100710.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_103312.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_103403.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_103442.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_103521.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_103559.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_140303.png"></li><li style="top: -1000px;"><img src="./index_files/02_charater_Update_101657.png"></li><li style="top: 0px; right: -1903px;"><img src="./index_files/02_charater__102751.png"></li></ul>
+                        </div>
+                        
+                                                <div class="txtImgWrap listWrap">
+                            <ul class="txtImg" style="left: 0px;">
+                            <li style="top: 0px; left: 115px;"><img src="./index_files/03_header_135932.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: 0px; left: 2018px;"><img src="./index_files/03_header__150126.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_095553.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_093507.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_093558.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_095105.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_100941.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_100710.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_103312.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_103403.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_103442.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_103521.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_110831.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_140303.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: -885px;"><img src="./index_files/03_header_Update_101657.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li><li style="top: 0px; left: -1788px;"><img src="./index_files/03_header__102751.png" class="txt"><div class="expandTxt"><div class="expandBgWrap expandBgWrapType0"><img src="./index_files/spBnrAreaExpandBgType0.png" class="expandBg"></div><img src="./index_files/spacer.gif" class="expandTxtImg"></div></li></ul>
+                        </div>
+                        
+                                                <div class="clickArea">
+                            <a href="http://tw.ncsoft.com/bns/event/2020/02/luckygame.html">驚喜轉盤 機會無限</a>
+                        </div>
+                        
+                                                <ul class="nav">
+                            <li class="prev">prev</li>
+                            <li class="next">next</li>
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+                        <div id="bbsArea">
+
+                                <div id="bbsAreaNull1">
+
+                                        <div class="newsWrap">
+
+                                                <div class="newsBbsArea bbsList">
+
+                                                        <div class="head">
+                                <h2>新聞活動</h2>
+                                <p class="link"><a href="http://tw.ncsoft.com/bns/news/main.nc" class="btn btn_v5">更多</a></p>
+                            </div>
+                            
+                                                        <div id="newsList">
+                                <ul id="notice">
+                                                                                                                <li>
+                                            <a href="javascript:view(&#39;4447&#39;, &#39;1&#39;);">228連假客服中心暫停服務公告 </a>
+                                            <span class="date">2020.02.27</span>
+                                        </li>
+                                                                            <li>
+                                            <a href="javascript:view(&#39;4446&#39;, &#39;1&#39;);">舊月島的神祕精華 </a>
+                                            <span class="date">2020.02.26</span>
+                                        </li>
+                                                                            <li>
+                                            <a href="javascript:view(&#39;4445&#39;, &#39;1&#39;);">極地的結晶之力 </a>
+                                            <span class="date">2020.02.21</span>
+                                        </li>
+                                                                            <li>
+                                            <a href="javascript:view(&#39;4444&#39;, &#39;1&#39;);">【2020鼠年大方送】獎勵發送公告 </a>
+                                            <span class="date">2020.02.17</span>
+                                        </li>
+                                                                            <li>
+                                            <a href="javascript:view(&#39;4443&#39;, &#39;2&#39;);">2/17 伺服器臨時維護開機公告 </a>
+                                            <span class="date">2020.02.17</span>
+                                        </li>
+                                                                            <li>
+                                            <a href="javascript:view(&#39;4442&#39;, &#39;2&#39;);">2/17 伺服器臨時維護公告 </a>
+                                            <span class="date">2020.02.17</span>
+                                        </li>
+                                                                                                        </ul>
+                            </div>
+                            
+                        </div>
+                        
+                                                <div class="communityBbsArea bbsList">
+
+                                                        <div class="head">
+                                <h2>玩家論壇</h2>
+                                <p class="link"><a href="http://forum.gamer.com.tw/B.php?bsn=12980" class="btn btn_v5">更多</a></p>
+                            </div>
+                            
+                                                        <ul id="community">
+                                                                                                                                                                            <li>
+                                        <a href="https://forum.gamer.com.tw/C.php?bsn=12980&amp;snA=10149" target="_blank">【討論】Blade &amp; Soul 電腦配備集中討論區 <img src="./index_files/ico_new.gif" class="new"></a>
+                                        <span class="date">2020.03.01</span>
+                                    </li>
+                                                                                                                                            <li>
+                                        <a href="https://forum.gamer.com.tw/C.php?bsn=12980&amp;snA=70099" target="_blank">【討論】新手、回鍋、裝備基礎相關集中串 <img src="./index_files/ico_new.gif" class="new"></a>
+                                        <span class="date">2020.03.01</span>
+                                    </li>
+                                                                                                                                            <li>
+                                        <a href="https://forum.gamer.com.tw/C.php?bsn=12980&amp;snA=72457" target="_blank">【其他】新12人副本團隊收人專區(泰天開放後正式啟用) </a>
+                                        <span class="date">2020.02.29</span>
+                                    </li>
+                                                                                                                                            <li>
+                                        <a href="https://forum.gamer.com.tw/C.php?bsn=12980&amp;snA=74524" target="_blank">【互助】徵徒兒or徵師傅，歡迎一起來蓋樓(請先閱讀1F) </a>
+                                        <span class="date">2020.02.29</span>
+                                    </li>
+                                                                                                                                            <li>
+                                        <a href="https://forum.gamer.com.tw/C.php?bsn=12980&amp;snA=76449" target="_blank">【韓】【情報】劍靈虚幻4的幾個最新預告片(包括人物畫質... </a>
+                                        <span class="date">2020.02.28</span>
+                                    </li>
+                                                                                                                                            <li>
+                                        <a href="https://forum.gamer.com.tw/C.php?bsn=12980&amp;snA=76464" target="_blank">【情報】UE4劍靈 創角畫面~ </a>
+                                        <span class="date">2020.02.28</span>
+                                    </li>
+                                                                                                                                                                        </ul>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                                        <div class="bottomNavi">
+                        <iframe width="551" height="310" class="video" src="./index_files/SZUNSgsmH3E.html" frameborder="0" allowfullscreen=""></iframe>
+                        <ul>
+                            <li class="li1"><a href="https://tw.ncsoft.com/login/signin">會員登入</a></li>
+                            <li class="li2"><a href="http://tw.ncsoft.com/bns/download/client">遊戲下載</a></li>
+                            <li class="li3"><a href="http://tw.ncsoft.com/bns/shop/main">付費介紹</a></li>
+                            <li class="li4"><a href="http://tw.ncsoft.com/nshop/myaccount/applyacode">酷碰專區</a></li>
+                            <li class="li5"><a href="http://tw.ncsoft.com/bns/gameguide/policy">遊戲規章</a></li>
+                        </ul>
+                        <p class="artwork"><img src="./index_files/bottomImg.png"></p>
+                        <div class="like">
+                            <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+                            <script>(function(d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0];
+                              if (d.getElementById(id)) return;
+                              js = d.createElement(s); js.id = id;
+                              js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+                              fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                            <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/BNSNCT?fref=ts" data-width="267" data-height="70" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;color_scheme=light&amp;container_width=267&amp;header=false&amp;height=70&amp;href=https%3A%2F%2Fwww.facebook.com%2FBNSNCT%3Ffref%3Dts&amp;locale=zh_TW&amp;sdk=joey&amp;show_border=false&amp;show_faces=false&amp;stream=false&amp;width=267"><span style="vertical-align: bottom; width: 267px; height: 70px;"><iframe name="f3518a616e8cd64" width="267px" height="70px" title="fb:like_box Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./index_files/like_box.html" style="border: none; visibility: visible; width: 267px; height: 70px;" class=""></iframe></span></div>
+                        </div>
+                        <div class="line">
+                            <ul class="lineInfo">
+                                <li class="lineId">官方好友：<span>@gar4961s</span></li>
+                                <li class="lineBtn"><a href="https://line.me/R/ti/p/%40gar4961s" target="_blank">立刻加入LINE好友</a></li>
+                            </ul>
+                        </div>
+                        <div class="maintenanceInfo">
+                            <p>例行維護時間：每週三 06:00～11:00　欲查詢劍靈最新訊息請追蹤劍靈粉絲團</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- UPDATE帯バナー
+    <script src="http://event.ncsoft.jp/servertimenow/now.js"></script>
+    <script src="http://tw.ncsoft.com/static/bns/pc/official/js/DayCount.js"></script>
+    <script src="http://tw.ncsoft.com/static/bns/pc/official/js/updateCountdown.js"></script>-->
+
+	<script type="text/javascript">
+		<!--
+		var NCJAPP;
+		NCJAPP = NCJAPP ? NCJAPP : {};
+		NCJAPP.bnsHomeSpBnrArea = (function(jQ){
+		    jQ(function(){
+		        if (typeof mainBanner === "undefined") {
+		            return false;
+		        }
+
+		        var dataArr = mainBanner,
+		            counter =       0,
+		            current =       0,
+		            prev =          0,
+		            next =          0,
+		            winWidth =      0,
+		            bnrHeight =     500, //固定値
+		            areaWidth =     1170,
+		            areaInnerWidth = 1170, //固定値
+		            autoSlideInt =  5000,
+		            animationTime = 1000,
+		            horizontalMargin = 300, //固定値
+		            navFlg =        true,
+		            txtListAdjust = 115, //固定値
+		            topScroll =     0,
+		            thumbWidth =    245, //固定値
+		            thumbListWidth = 0,
+		            thumbListPadding = 0, //60 固定値　左30+右30
+		            thumbShowFlg =  false,
+		            bnrAreaShowFlg = true,
+		            memoMouseX =     0, //バナーエリア非表示状態でmousemoveしたときの最後のclientX値
+		            jQ_area =       jQ("#spBnrSectionNull1"),
+		            jQ_bgImgWrap =  jQ(".bgImgWrap", jQ_area),
+		            jQ_bgImg =      jQ(".bgImg", jQ_bgImgWrap),
+		            jQ_bgList,// =     jQ("li", jQ_bgImg), 後から設定
+		            jQ_charaImgWrap = jQ(".charaImgWrap", jQ_area),
+		            jQ_charaImg =   jQ(".charaImg", jQ_charaImgWrap),
+		            jQ_charaList,// =  jQ("li", jQ_charaImg), 後から設定
+		            jQ_txtImgWrap = jQ(".txtImgWrap", jQ_area),
+		            jQ_txtImg =     jQ(".txtImg", jQ_txtImgWrap),
+		            jQ_txtList,// =    jQ("li", jQ_txtImg), 後から設定
+		            jQ_nav =        jQ(".nav li", jQ_area),
+		            jQ_linkArea =  jQ(".clickArea a", jQ_area),
+		            jQ_thumbs,// =     jQ("#spBnrThumbnails"), 後から設定
+		            jQ_thumbsUL,// =     jQ("ul", jQ_thumbs), 後から設定
+		            thumbAdjust      = 0,
+		            thumbMove =     false,
+		            bnrLength =     dataArr.length,
+		            imgPath =       "http://image.tw.ncsoft.com/bns/pc/official/home/";
+
+		        var setCounter = function(n) {
+		            counter += n;
+		            if (counter < 0) {
+		                current = (Math.floor(Math.abs(counter) / bnrLength) * bnrLength + bnrLength + counter) % bnrLength;
+		            } else {
+		                current = counter % bnrLength;
+		            }
+		            if (bnrLength === 1) {return false;}
+		            prev = current - 1;
+		            if (prev < 0) {
+		                prev = bnrLength - 1;
+		            }
+		            next = current + 1;
+		            if (next > bnrLength - 1) {
+		                next = 0;
+		            }
+		        }
+
+		        var setBg = function(n) {
+		            jQ_bgImg.css("top",  counter * -1 * bnrHeight + "px");
+		            jQ_bgList.css("left", "-200%"); //表示されない位置に飛ばす
+		            jQ_bgList.eq(current).css({"left": "-50%", "top": bnrHeight * counter + "px"});
+		            if (bnrLength === 1) {return false;}
+		            if (bnrLength === 2) {
+		                if (n === -1) {
+		                    jQ_bgList.eq(prev).css({"left": "-50%", "top": bnrHeight * (counter + 1) + "px"});
+		                } else if (n === 1) {
+		                    jQ_bgList.eq(prev).css({"left": "-50%", "top": bnrHeight * (counter - 1) + "px"});
+		                }
+		            } else {
+		                jQ_bgList.eq(prev).css({"left": "-50%", "top": bnrHeight * (counter - 1) + "px"});
+		                jQ_bgList.eq(next).css({"left": "-50%", "top": bnrHeight * (counter + 1) + "px"});
+		            }
+		        }
+
+		        var setChara = function(n) {
+		            jQ_charaImg.css("right",  counter* -1 * areaWidth + "px");
+		            jQ_charaList.css("top", bnrHeight * -2 + "px");
+		            jQ_charaList.eq(current).css({"top": "0", "right": areaWidth * counter + "px"});
+		            if (bnrLength === 1) {return false;}
+		            if (bnrLength === 2) {
+		                if (n === -1) {
+		                    jQ_charaList.eq(next).css({"top": "0", "right": areaWidth * (counter + 1) + "px"});
+		                } else if (n === 1) {
+		                    jQ_charaList.eq(prev).css({"top": "0", "right": areaWidth * (counter - 1) + "px"});
+		                }
+		            } else {
+		                jQ_charaList.eq(prev).css({"top": "0", "right": areaWidth * (counter - 1) + "px"});
+		                jQ_charaList.eq(next).css({"top": "0", "right": areaWidth * (counter + 1) + "px"});
+		            }
+		        };
+
+		        var setTxt = function(n) {
+		            jQ_txtImg.css("left",  counter * -1 * areaWidth + "px");
+		            jQ_txtList.css("top", bnrHeight * -2 + txtListAdjust + "px");
+		            jQ_txtList.eq(current).css({"top": "0", "left": areaWidth * counter + txtListAdjust + "px"});
+		            if (bnrLength === 1) {return false;}
+		            if (bnrLength === 2) {
+		                if (n === -1) {
+		                    jQ_txtList.eq(next).css({"top": "0", "left": areaWidth * (counter + 1) + txtListAdjust + "px"});
+		                } else if (n === 1) {
+		                    jQ_txtList.eq(prev).css({"top": "0", "left": areaWidth * (counter - 1) + txtListAdjust + "px"});
+		                }
+		            } else {
+		                jQ_txtList.eq(prev).css({"top": "0", "left": areaWidth * (counter - 1) + txtListAdjust + "px"});
+		                jQ_txtList.eq(next).css({"top": "0", "left": areaWidth * (counter + 1) + txtListAdjust + "px"});
+		            }
+		        };
+
+		        var setLink = function() {
+		            jQ_linkArea.attr("href", dataArr[current]["linkUrl"]);
+		            jQ_linkArea.text(dataArr[current]["title"]);
+		            if(dataArr[current]["isPopUp"]){
+		                jQ_linkArea.attr("target", "_blank");
+		            }else{
+		                jQ_linkArea.removeAttr("target");
+		            }
+		        }
+
+		        var chgBnr = function(n) {
+
+		            if (!navFlg) {
+		                return false;
+		            }
+		            navFlg = false;
+		            var t = setTimeout(function(){navFlg = true}, animationTime);
+
+		            setCounter(n);
+
+		            setBg(n);
+		            setChara(n);
+		            setTxt(n);
+		            setLink();
+		        };
+
+		        var chgBnrAuto = function() {
+		            chgBnr(1);
+		        };
+
+		        var setWidth = function() {
+		            winWidth = jQ(window).width();
+		            areaWidth = jQ_area.width();
+		            thumbAdjust = (areaWidth - areaInnerWidth) / 2;
+		        }
+
+		        var showThumbs = function() {
+		            var t,
+		                mouseX,
+		                targetX,
+		                posX = 0;
+
+		            targetX = targetX ? targetX : 0;
+		            jQ_thumbs.addClass("expand");
+		            jQ_thumbHandle.addClass("animate");
+		            jQ_thumbsUL.css("left", "0px");
+
+		            function resize() {
+		                if (thumbListWidth > winWidth) {
+		                    thumbMove = true;
+		                } else {
+		                    thumbMove = false;
+		                    jQ_thumbsUL.css("left", (winWidth - thumbListWidth) / 2 + "px");
+		                }
+		            }
+		            jQ(window).resize(function(){
+		                resize();
+		            });
+		            resize();
+
+		            jQ_thumbs.bind("mouseenter", function(e){
+		                mouseX = e.clientX;
+		                jQ_thumbs.bind("mousemove", function(e){
+		                    mouseX = e.clientX;
+		                });
+
+		                function setThumbMove() {
+		                    if (thumbMove) {
+		                        var percent = (mouseX - 50) / (winWidth - 100);//mouseX / winWidth  ※マウスのx座標に50pxのマージンを持たせている
+		                        if (percent > 1) {
+		                            percent = 1;
+		                        } else if (percent < 0) {
+		                            percent = 0;
+		                        }
+		                        targetX = percent * (thumbListWidth - winWidth) * -1 + $(window).scrollLeft();
+		                        posX += (targetX - posX) * 0.1;
+		                        jQ_thumbsUL.css("left", posX + "px");
+		                    }
+		                    t = setTimeout(function(){setThumbMove()}, 10);
+		                }
+		                setThumbMove();
+
+		            });
+		            jQ_thumbs.bind("mouseleave", function(e){
+		                clearTimeout(t);
+		            });
+		        };
+		        var hideThumbs = function() {
+		            jQ_thumbs.removeClass("expand");
+		            jQ_thumbs.unbind("mouseenter");
+		            jQ_thumbs.unbind("mouseleave");
+		        };
+
+		        var buildThumbs = function(){
+		            thumbListWidth = bnrLength * thumbWidth + thumbListPadding;
+		            var handleWidth = areaInnerWidth / thumbListWidth * areaInnerWidth;
+		            jQ_thumbs.find("ul").css("width", thumbListWidth - thumbListPadding + "px");
+
+		            var jQ_style = jQ("<style type='text/css'>#spBnrThumbnails.expand ul {left:" + Math.round((areaInnerWidth - thumbListWidth - thumbListPadding) / 2) + "px;}");
+		            jQ_style.appendTo("head");
+		        };
+
+		        function setDom() {
+		            var frag = document.createDocumentFragment(),
+		                dom, dom2, dom3;
+
+		            //背景
+		            for (i = 0; i < bnrLength; i += 1) {
+		                dom = jQ("<li><img src='" + dataArr[i]["backgroundImgUrl"] + "'></li>")
+		                frag.appendChild(dom[0]);
+		            }
+		            jQ_bgImg[0].appendChild(frag);
+
+		            //キャラ
+		            for (i = 0; i < bnrLength; i += 1) {
+		                dom = jQ("<li><img src='" + dataArr[i]["charaImgUrl"] + "'></li>")
+		                frag.appendChild(dom[0]);
+		            }
+		            jQ_charaImg[0].appendChild(frag);
+
+		            //テキスト
+		            for (i = 0; i < bnrLength; i += 1) {
+		                dom = jQ("<li><img src='" + dataArr[i]["txtImgUrl"] + "' class='txt'><div class='expandTxt'><div class='expandBgWrap expandBgWrapType" + dataArr[i]["expandTxtBgType"] + "'><img src='" + imgPath + "spBnrAreaExpandBgType" + dataArr[i]["expandTxtBgType"] + ".png' class='expandBg'></div><img src='" + dataArr[i]["expandTxtImgUrl"] + "' class='expandTxtImg'></div></li>")
+		                frag.appendChild(dom[0]);
+		            }
+		            jQ_txtImg[0].appendChild(frag);
+
+		            //サムネイル
+		            dom = jQ("<div id='spBnrThumbnails'><div id='spBnrThumbnailsNull1'><div class='ulWraper'><ul></ul></div>");
+
+		            for (i = 0; i < bnrLength; i += 1) {
+		                if(dataArr[i]["isPopUp"]) {
+		                    dom2 = jQ("<li><a href='" + dataArr[i]["linkUrl"] + "' style='background-image:url(" + dataArr[i]["thumbCharaImgUrl"] + ");' target='_blank'><span style='background-image:url(" + dataArr[i]["thumbTxtImgUrl"] + ");'>" + dataArr[i]["title"] + "</span></a></li>");
+		                }else{
+		                    dom2 = jQ("<li><a href='" + dataArr[i]["linkUrl"] + "' style='background-image:url(" + dataArr[i]["thumbCharaImgUrl"] + ");'><span style='background-image:url(" + dataArr[i]["thumbTxtImgUrl"] + ");'>" + dataArr[i]["title"] + "</span></a></li>");
+		                }
+		                frag.appendChild(dom2[0]);
+		            }
+		            dom.find("ul")[0].appendChild(frag);
+		            jQ("#mainMenuArea").after(dom);
+
+		            jQ_bgList = jQ("li", jQ_bgImg);
+		            jQ_charaList = jQ("li", jQ_charaImg);
+		            jQ_txtList = jQ("li", jQ_txtImg);
+		            jQ_thumbs = jQ("#spBnrThumbnails");
+		            jQ_thumbsUL = jQ("ul", jQ_thumbs);
+		            jQ_thumbHandle = jQ(".sliderHandle", jQ_thumbs);
+
+		            if (bnrLength === 1) {
+		                jQ_nav.hide();
+		            }
+		        }
+
+
+		        // ■handler■
+		        jQ_area.mouseover(function(){
+		            jQ(this).addClass("expand");
+		        });
+		        jQ_area.mouseout(function(){
+		            jQ(this).removeClass("expand");
+		        });
+
+		        var parallax = function(mouseX) {
+		            if (bnrAreaShowFlg) {
+		                jQ_charaImgWrap.css("left", (mouseX - (areaWidth / 2)) * -1 * .15 + "px");
+		                jQ_bgImgWrap.css("left", (mouseX - (areaWidth / 2)) * - 1 * .05 + "px");
+		            } else {
+		                memoMouseX = mouseX;
+		            }
+		        };
+
+		        var setParallax = function() {
+		            jQ(window).bind("mousemove.parallax", function(e){
+		                parallax(e.clientX);
+		            });
+		        };
+
+		        jQ_nav.click(function(e){
+		            var idx = jQ_nav.index(this);
+		            if (idx === 0) {
+		                chgBnr(-1);
+		            } else if (idx === 1) {
+		                chgBnr(1);
+		            }
+		        });
+
+		        var setScroll = function() {
+		            jQ(window).scroll(function(){
+		                var margin = 100;
+		                topScroll = $(window).scrollTop();
+
+		                if (topScroll > bnrHeight -  margin * 2 && !thumbShowFlg) {
+		                    showThumbs();
+		                    thumbShowFlg = true;
+		                } else if (topScroll < bnrHeight - margin * 2 && thumbShowFlg) {
+		                    hideThumbs();
+		                    thumbShowFlg = false;
+		                }
+
+		                if (topScroll > bnrHeight + margin && bnrAreaShowFlg) { //表示エリアから外れた場合
+		                    bnrAreaShowFlg = false;
+		                } else if (topScroll < bnrHeight + margin && !bnrAreaShowFlg) { //表示エリアに入った場合
+		                    bnrAreaShowFlg = true;
+		                    parallax(memoMouseX);
+		                }
+		            });
+		        }
+
+		        jQ(window).resize(function(){
+		            setWidth();
+		            setChara();
+		            setTxt();
+		        });
+
+		        var init = function(){
+		            setDom();
+		            setCounter(0);
+		            setWidth();
+		            jQ_bgImg.css("width", 2400 + "px");
+		            if (!Modernizr.csstransitions) { //cssアニメーションに対応していない場合
+		                animationTime = 0;
+		            }
+		            setBg();
+		            setChara();
+		            setTxt();
+		            setLink();
+		            setParallax();
+		            buildThumbs();
+		            setScroll();
+		        };
+		        init();
+		    });
+		}(jQuery));
+
+		// -->
+
+        var view = function (newsNo, categoryCode) {
+			var frmAction = '';
+			if (categoryCode == '1') {
+				frmAction = "/bns/news/view.nc?nn="+newsNo;
+			} else {
+				frmAction = "/bns/news/mtnews/view.nc?nn="+newsNo;
+			}
+			$("#detailForm").attr("action", frmAction);
+                        $('#detailForm').submit();
+        }
+    </script>
+    <script>
+    (function(jQ){
+        jQ(window).load(function(){
+            jQ('#mainMenuArea .main').headerCarrent('home', null);
+        })
+    }(jQuery));
+    </script>
+
+    <form id="detailForm" name="detailForm" method="post" action="http://tw.ncsoft.com/bns/news/view.nc">
+                <input type="hidden" id="currentPage" name="currentPage" value="1">
+    </form>
+
+    <!-- Start Tracking code -->
+    <img src="http://tags.rtbidder.net/track?sid=554095a3c5351a0ef8ddda41" width="0" height="0" border="0" alt="" style="display: none !important;">
+    <img src="https://tags.rtbidder.net/track?sid=554095f6c5351a0ef8ddda51" width="0" height="0" border="0" alt="" style="display: none !important;">
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="http://4843509.fls.doubleclick.net/activityi;src=4843509;type=invmedia;cat=kb34bjmz;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script><iframe src="./index_files/activityi.html" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    <noscript>
+    <iframe src="http://4843509.fls.doubleclick.net/activityi;src=4843509;type=invmedia;cat=kb34bjmz;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    <script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="https://4843509.fls.doubleclick.net/activityi;src=4843509;type=invmedia;cat=sflnhh0f;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+    </script><iframe src="./index_files/activityi(1).html" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    <noscript>
+    <iframe src="https://4843509.fls.doubleclick.net/activityi;src=4843509;type=invmedia;cat=sflnhh0f;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+    </noscript>
+    <!-- End Tracking code -->
+	</div>
+    <header id="header" style="left: auto;">
+        <menu>
+            <div id="mainMenuArea" class="">
+                <div class="inner">
+                    <div class="logoArea">
+                        <p class="logo"><a href="http://tw.ncsoft.com/bns/index">劍靈</a></p>
+                        <p class="bnr"><a href="http://tw.ncsoft.com/bns/event/update/2001/index.html" style="background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/bnrUpdate_v2001.png); background-repeat: no-repeat;">鋼鐵方舟 • 序 重點介紹</a></p>
+                    </div>
+                    <ul class="main">
+                        <li class="intro"><a href="http://tw.ncsoft.com/bns/intro/main">遊戲資訊</a>
+                            <div class="subMenuArea"><div class="inner"><div class="inner2">
+                                <p class="breadcrumbs"></p>
+                                <ul class="sub">
+                                    <li class="intro"><a href="http://tw.ncsoft.com/bns/intro/main">遊戲介紹</a></li>
+                                    <li class="ranking"><a href="http://tw.ncsoft.com/bns/news/ranking/list">比武排名現況</a></li>
+                                    <li class="rankingsystem"><a href="http://tw.ncsoft.com/bns/news/rankingsystem">比武排行榜系統介紹</a></li>
+                                </ul>
+                            </div></div></div>
+                        </li>
+                        <li class="library"><a href="http://tw.ncsoft.com/bns/video/official">影音漫畫</a>
+                            <div class="subMenuArea"><div class="inner"><div class="inner2">
+                                <p class="breadcrumbs"></p>
+                                <ul class="sub">
+                                    <li class="video"><a href="http://tw.ncsoft.com/bns/video/official">影片專區</a></li>
+                                    <li class="library"><a href="http://tw.ncsoft.com/bns/library/main">漫畫專區</a></li>
+                                </ul>
+                            </div></div></div>
+                        </li>
+                        <li class="news"><a href="http://tw.ncsoft.com/bns/news/main">新聞活動</a>
+                            <div class="subMenuArea"><div class="inner"><div class="inner2">
+                                <p class="breadcrumbs"></p>
+                                <ul class="sub">
+                                    <li class="event"><a href="http://tw.ncsoft.com/bns/news/event/list">活動情報</a></li>
+                                    <li class="news"><a href="http://tw.ncsoft.com/bns/news/list">公告訊息</a></li>
+                                    <li class="maintenance"><a href="http://tw.ncsoft.com/bns/news/mtnews/list">維護公告</a></li>
+                                    <li><a href="https://tw.ncsoft.com/faq/?query=%E7%B6%B2%E8%B7%AF%E9%80%A3%E7%B7%9A%E5%93%81%E8%B3%AA%E6%B8%AC%E8%A9%A6&amp;page=1">檢測網路連線</a></li>
+                                    <li class="bot"><a href="http://tw.ncsoft.com/bns/news/bot">敬天盟的懲戒號令</a></li>
+                                </ul>
+                            </div></div></div>
+                        </li>
+                        <li class="guide"><a href="http://tw.ncsoft.com/bns/gameguide/main">新手指南</a>
+                            <div class="subMenuArea"><div class="inner"><div class="inner2">
+                            <p class="breadcrumbs"></p>
+                                <ul class="sub">
+                                    <li class="guide"><a href="http://tw.ncsoft.com/bns/gameguide/guide">新手導覽</a></li>
+                                    <li class="setup"><a href="http://tw.ncsoft.com/bns/gameguide/setup">遊戲前準備</a></li>
+                                    <li class="payment"><a href="http://tw.ncsoft.com/bns/shop/main">付費介紹</a></li>
+                                    <li class="basicOperation"><a href="http://tw.ncsoft.com/bns/gameguide/interface">基本操作</a></li>
+                                    <li class="race"><a href="http://tw.ncsoft.com/bns/gameguide/race">種族介紹</a></li>
+                                    <li class="class"><a href="http://tw.ncsoft.com/bns/gameguide/class">職業介紹</a></li>
+                                    <li class="update"><a href="http://tw.ncsoft.com/bns/gameguide/update">改版專區</a></li>
+                                    <li class="policy"><a href="http://tw.ncsoft.com/bns/gameguide/policy">遊戲規章</a></li>
+                                    <li class="serviceagreement"><a href="http://tw.ncsoft.com/bns/gameguide/serviceagreement">服務合約書</a></li>
+                                </ul>
+                            </div></div></div>
+                        </li>
+                        <li class="shop"><a href="https://tw.ncsoft.com/nshop/bns/">遊戲商城</a>
+                            <div class="subMenuArea"><div class="inner"><div class="inner2">
+                            <p class="breadcrumbs"></p>
+                                <ul class="sub">
+                                    <li class="ds"><a href="http://tw.ncsoft.com/bns/shop/main">龍銀會員服務介紹</a></li>
+                                    <li class="buy"><a href="https://tw.ncsoft.com/nshop/bns/">NShop</a></li>
+                                </ul>
+                            </div></div></div>
+                        </li>
+                        <li class="download"><a href="http://tw.ncsoft.com/bns/download/client">下載專區</a></li>
+                    </ul>
+                </div>
+            </div><div id="spBnrThumbnails" class=""><div id="spBnrThumbnailsNull1"><div class="ulWraper"><ul style="width: 3920px; left: 0px;"><li><a href="http://tw.ncsoft.com/bns/event/2020/02/luckygame.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/26/06_ListCH_135932.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/26/05_Listtx_135932.png);">驚喜轉盤 機會無限</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2002/designcontest/deco" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2019/11/20/06_ListCH__101906.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/03/05_Listtx__150126.png);">劍靈第三屆設計大賽</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/signin.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/27/06_ListCH_095553.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/27/05_Listtx_095553.png);">行商之旅簽到簿</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/clothesbag.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/26/06_ListCH_093507.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/26/05_Listtx_093507.png);">幻夜之影 浪客獨行</span></a></li><li><a href="http://tw.ncsoft.com/bns/news/view.nc?nn=4446" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/26/06_ListCH_093558.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/26/05_Listtx_093558.png);">舊月島的神祕精華</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/30days.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/25/06_ListCH_095105.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/25/05_Listtx_095105.png);">武林在走 朋友要有</span></a></li><li><a href="http://tw.ncsoft.com/bns/news/view.nc?nn=4445" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/21/06_ListCH_100941.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/21/05_Listtx_100941.png);">極地的結晶之力</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/whiteday.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/19/06_ListCH_100710.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/19/05_Listtx_100710.png);">Valentine 2020 心動瞬間</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/treasure.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/06_ListCH_103312.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/05_Listtx_103312.png);">夜色之新月祕寶</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/stuffsell.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/06_ListCH_103403.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/05_Listtx_103403.png);">魂之源</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/ingame.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/06_ListCH_103442.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/05_Listtx_103442.png);">鑼鼓喧天情人祭典</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/02/treasurehunt.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/06_ListCH_103521.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/05_Listtx_103521.png);">紅絲的財寶賓果大作戰</span></a></li><li><a href="http://tw.ncsoft.com/bns/news/view.nc?nn=4435" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/06_ListCH_103559.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/02/12/05_Listtx_103559.png);">突破自我 超越極限</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2020/01/signin.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/01/31/06_ListCH_140303.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/01/31/05_Listtx_140303.png);">鴻運迎春簽到簿</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/update/2001/index.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/01/08/06_ListCH_Update_101657.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2020/01/08/05_Listtx_Update_101657.png);">鋼鐵方舟序</span></a></li><li><a href="http://tw.ncsoft.com/bns/event/2019/12/90days.html" style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2019/12/24/06_ListCH__102751.png);"><span style="background-image:url(http://tw.ncsoft.com/static/ingame/bns/images/54/2019/12/24/05_Listtx__102751.png);">龍銀少女魔法Show</span></a></li></ul></div></div></div>
+        </menu>
+    </header>
+
+    <footer id="footer">
+        <div id="footerBlock1" class="footerBlock">
+            <div class="footerBlockNull1">
+                <div class="footerTableArea">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="member"><a href="https://tw.ncsoft.com/ap/wb/account/profile">帳戶資訊</a></td>
+                                <td class="gameTicket"><a href="http://tw.ncsoft.com/nshop/myaccount/history/chargehistory">交易記錄</a></td>
+                                <td class="coupon"><a href="http://tw.ncsoft.com/nshop/myaccount/applyacode">酷碰專區</a></td>
+                                <td class="gameDownload"><a href="http://tw.ncsoft.com/bns/download/client">遊戲下載</a></td>
+                                <td class="rating">
+                                    <img src="./index_files/footer_rating.jpg" alt="">
+                                    <span>本遊戲情節涉及性、暴力、恐怖。<br>
+                                    注意使用時間，避免沉迷於遊戲，可能影響身心健康。<br>
+                                    本遊戲部分內容或服務需另行支付其他費用。</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="nctFooter"><div class="ncFooter"> <div class="logo"> <p class="nc"><a title="NCSOFT" href="http://global.ncsoft.com/global/" target="_blank">NCSOFT</a></p> <p class="nct"><a title="NCSOFT TAIWAN" href="http://www.nctaiwan.com/" target="_blank">NCSOFT TAIWAN</a></p> </div> <div class="footerMenu"> <a class="terms" href="https://tw.ncsoft.com/ap/wb/legal/termsOfUse">會員規範</a> <a class="contact" href="https://tw.ncsoft.com/faq/contactUs">聯絡客服</a> <address>Copyright © NCSOFT Corporation. All Rights Reserved.</address> </div></div></div>
+
+<script type="text/javascript">
+    (function($) {
+        "use strict";
+        $(document).ready(function() {
+            nc.twGnb.init({
+                  environment : 'live',
+                  siteFlag : 'bns'
+            });
+        });
+    }(jQuery));
+</script>
+
+<!-- Start Google Remarketing -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 836934827;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./index_files/f(2).txt">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/836934827/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<!--<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: 劍靈_再行銷
+URL of the webpage where the tag is expected to be placed: http://www.nctaiwan.com
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 08/15/2017
+-->
+<iframe src="./index_files/activityi(2).html" width="1" height="1" frameborder="0" style="display:none"></iframe>
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+<!-- end Google Remarketing -->
+
+
+
+<script type="text/javascript">            /* <![CDATA[ */            var google_conversion_id = 964862149;            var google_custom_params = window.google_tag_params;            var google_remarketing_only = true;            /* ]]> */            </script>            <script type="text/javascript" src="./index_files/f(2).txt">            </script>            <noscript>            <div style="display:inline;">            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/964862149/?value=0&amp;guid=ON&amp;script=0"/>            </div>            </noscript></body></html>

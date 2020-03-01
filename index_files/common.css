@@ -1,0 +1,1418 @@
+/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
+
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {display: block;}
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,canvas,video {display: inline-block; *display: inline; *zoom: 1;}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {display: none; height: 0;}
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {display: none;}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {font-size: 100%; /* 1 */    -ms-text-size-adjust: 100%; /* 2 */    -webkit-text-size-adjust: 100%; /* 2 */}
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+#content,
+#header,
+#footer {position: relative; font-family: Arial, 微軟正黑體, "Microsoft JhengHei", Helvetica, sans-serif;}
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {margin: 0;}
+body #contentArea {font-size: 14px;}
+/* ==========================================================================
+   Links
+   ========================================================================== */
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+
+a:focus {outline: thin dotted;}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,a:hover {outline: 0;}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/**
+ * Address font sizes and margins set differently in IE 6/7.
+ * Address font sizes within `section` and `article` in Firefox 4+, Safari 5,
+ * and Chrome.
+ */
+
+h1 {font-size: 2em; margin: 0.67em 0;}
+h2 {font-size: 1.5em; margin: 0.83em 0;}
+h3 {font-size: 1.17em; margin: 1em 0 0.5em;}
+h4 {font-size: 1em; margin: 1.33em 0 0.5em;}
+h5 {font-size: 0.83em; margin: 1.67em 0;}
+h6 {font-size: 0.67em; margin: 2.33em 0;}
+/**
+ * Address styling not present in IE 7/8/9, Safari 5, and Chrome.
+ */
+
+abbr[title] {border-bottom: 1px dotted;}
+
+/**
+ * Address style set to `bolder` in Firefox 3+, Safari 4/5, and Chrome.
+ */
+
+b,strong {font-weight: bold;}
+
+blockquote {margin: 1em 40px;}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+
+dfn {font-style: italic;}
+
+/**
+ * Address differences between Firefox and other browsers.
+ * Known issue: no IE 6/7 normalization.
+ */
+
+hr {-moz-box-sizing: content-box; box-sizing: content-box; height: 0;}
+
+/**
+ * Address styling not present in IE 6/7/8/9.
+ */
+
+mark {background: #ff0; color: #000;}
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+
+p,
+pre {
+    margin: 1em 0;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {margin:0.5em 0 1em}
+.contentElementBody p +p {margin-top: 18px;}
+
+/**
+ * Correct font family set oddly in IE 6, Safari 4/5, and Chrome.
+ */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/**
+ * Address CSS quotes not supported in IE 6/7.
+ */
+
+q {
+    quotes: none;
+}
+
+/**
+ * Address `quotes` property not supported in Safari 4.
+ */
+
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Lists
+   ========================================================================== */
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+
+/**
+ * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
+ * 2. Improve image quality when scaled in IE 7.
+ */
+
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
+ */
+
+figure {
+    margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/**
+ * Correct margin displayed oddly in IE 6/7.
+ */
+
+form {
+    margin: 0;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct color not being inherited in IE 6/7/8/9.
+ * 2. Correct text not wrapping in Firefox 3.
+ * 3. Correct alignment displayed oddly in IE 6/7.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0;
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. Correct font size not being inherited in all browsers.
+ * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
+ *    and Chrome.
+ * 3. Improve appearance and consistency in all browsers.
+ */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+
+/**
+ * Address Firefox 3+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+button,
+input {
+    line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
+ *    Known issue: inner spacing remains in IE 6.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+    *overflow: visible;  /* 4 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to content-box in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ * 3. Remove excess padding in IE 7.
+ *    Known issue: excess padding remains in IE 6.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 3+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 6/7/8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+
+
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   contents width
+   ========================================================================== */
+
+html {overflow: auto;}
+body {overflow: hidden; min-width:1170px;}
+
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    line-height: 1.6 !important;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+.contentElement audio,
+.contentElement canvas,
+.contentElement img,
+.contentElement video {
+    vertical-align: bottom;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles â˜…â˜†â˜…ã“ã“ã‹ã‚‰â˜…â˜†â˜…
+   ========================================================================== */
+h1 {margin:0}
+h2 {font-size:120%; font-weight:bold;}
+h3 {font-size:120%; font-weight:bold;}
+h2:first-child, h3:first-child {margin-top:0;}
+p:first-child {margin-top:0}
+p:last-child {margin-bottom:0}
+#contentArea {line-height: 1.9;}
+.s {font-size:90%; color:#888;}
+
+/* GNB */
+
+#pwHeader {position:fixed !important; top:0; left:0; width:100%; min-width:1170px; z-index:1000}
+#pwHeader a {color:#fff;}
+#pwHeader .ncGnb {position: absolute; top:0; left:auto; width:100%;}
+#pwHeader .ncGnb.small {height:0px !important; overflow: hidden;}
+#pwHeader .ncGnb {
+  transition: height 0.2s ease-out 0s;
+  -moz-transition: height 0.2s ease-out 0s;
+  -webkit-transition: height 0.2s ease-out 0s;
+  -o-transition: height 0.2s ease-out 0s;
+  -ms-transition: height 0.2s ease-out 0s;
+}
+#pwFooter {position: relative;}
+
+#nctGnb {position: fixed !important; min-height: 0 !important; z-index: 999999 !important;}
+#nctGnb .ncGnb {background: url(http://rc-tw.ncsoft.com/static/global/nct/img/layout/gnb/bgGnb.gif) repeat-x left bottom #fff;
+  transition: height 0.2s ease-out 0s;
+  -moz-transition: height 0.2s ease-out 0s;
+  -webkit-transition: height 0.2s ease-out 0s;
+  -o-transition: height 0.2s ease-out 0s;
+  -ms-transition: height 0.2s ease-out 0s;
+  }
+#nctGnb .ncGnb.small {height:0px !important; overflow: hidden;}
+#nctGnb .gameList {/*osition: absolute !important; left: 50% !important; width: 5000px !important; margin-left: -2500px;*/}
+
+/* header */
+/*input[type="text"] {height:20px; padding:5px 7px 6px;  font-size:13px; border:1px solid #e2e2e2}
+input[type="text"].big {font-size:20px; padding:10px;}*/
+
+.tab.type1 ul {clear:both;}
+.tab.type1 ul li {float:left; margin:0; padding:0 7px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/separater.gif) left center no-repeat; }
+.tab.type1 ul li:first-child {padding-left:0; background:none;}
+.tab.type1 ul li a {display:block; padding:7px;}
+.tab.type1 ul li.current a {background:#222; color:#fff;}
+
+
+#header {position:fixed; top:0; left:0; width:100%; min-width:1170px; z-index:10;}
+#header * {margin:0; padding:0;}
+#header a {color:#fff;}
+
+#nctGnb #header #mainMenuArea.small {top: 0;}
+.globalgnb + #header {top: 54px;}
+
+#header #mainMenuArea {min-width:1170px; height:60px; position: relative; top:40px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/menu_bg.png) #000;}
+#header #mainMenuArea.small {height: 45px; top:0;}
+ .lt-ie9 #header {background-image: none; background-color: #c10f0f;}
+}
+#header #mainMenuArea.small {height:45px !important; margin-top:0;}
+ .lt-ie9 #header #mainMenuArea.small ul.main > li {height:45px; margin-top:0;}
+ #header #mainMenuArea.small,
+#header #mainMenuArea {
+  transition: height 0.2s ease-out 0s, top 0.2s ease-out 0s;
+  -moz-transition: height 0.2s ease-out 0s, top 0.2s ease-out 0s;
+  -webkit-transition: height 0.2s ease-out 0s, top 0.2s ease-out 0s;
+  -o-transition: height 0.2s ease-out 0s, top 0.2s ease-out 0s;
+  -ms-transition: height 0.2s ease-out 0s, top 0.2s ease-out 0s;
+}
+
+#header #mainMenuArea > .inner:after{content:url(http://image.tw.ncsoft.com/bns/pc/official/common/spacer.gif);display:block;clear:both;height:0;} /* clearFix */
+#header #mainMenuArea > .inner{display:inline-block;} /* clearFix */
+#header #mainMenuArea > .inner{display:block;} /* clearFix */
+#header #mainMenuArea > .inner {width:1170px; margin:0 auto; height:100%;}
+#header #mainMenuArea .logoArea {float:left; zoom:1;}
+#header #mainMenuArea .logoArea:after {display: block; display: block; clear: both;}
+#header #mainMenuArea p.logo {float:left; overflow:hidden; margin-left: 30px;}
+#header #mainMenuArea p.logo a {display:block; width:100px; height:60px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/logo.png?v=170912) no-repeat; text-indent:-9999px; overflow:hidden; }
+#header #mainMenuArea p.bnr {float:left; overflow:hidden;}
+#header #mainMenuArea p.bnr a {display:block; width:310px; height:60px; text-indent:-9999px; overflow:hidden; }
+#header #mainMenuArea .logoArea.mini p.logo a,
+#header #mainMenuArea .logoArea.mini p.bnr a {height: 45px; background-position:0 -60px;}
+#header #mainMenuArea ul {float:right; margin-right:15px;}
+#header #mainMenuArea ul li {float:left; list-style:none;}
+#header #mainMenuArea ul.main {height:100%;}
+#header #mainMenuArea ul.main > li {height:100%;}
+ .lt-ie9 #header #mainMenuArea ul.main > li {height:60px;}
+#header #mainMenuArea ul.main > li > a { color: #fff; font-size: 16px; font-weight: bold; text-decoration: none; width:115px; height: 60px; display:flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center;}
+#header #mainMenuArea.small  ul.main > li > a {height: 45px;}
+#header #mainMenuArea ul.main > li > a:hover,
+#header #mainMenuArea ul.main > li.current > a {color: #FC0;}
+/*#header #mainMenuArea ul.main > li > a {display:block; height:100%; line-height:100%; text-indent:-9999px; width:115px; background-position:10px center;}
+#header #mainMenuArea ul.main > li > a:hover,
+#header #mainMenuArea ul.main > li.current > a {background-position:-190px center}*/
+/*#header #mainMenuArea ul.main > li.home > a {width:95px; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuHome.png)}
+#header #mainMenuArea ul.main > li.news > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuNews.png)}
+#header #mainMenuArea ul.main > li.intro > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuIntro.png)}
+#header #mainMenuArea ul.main > li.capture > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuCapture.png)}
+#header #mainMenuArea ul.main > li.guide > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuGameGuide.png)}
+#header #mainMenuArea ul.main > li.community > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuCommunity.png)}
+#header #mainMenuArea ul.main > li.shop > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuShop.png)}
+#header #mainMenuArea ul.main > li.shop.alert > a {width:115px; background-position:-390px center;}
+#header #mainMenuArea ul.main > li.shop.alert > a:hover {background-position:-590px center;}
+#header #mainMenuArea ul.main > li.download > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuDownload.png)}
+#header #mainMenuArea ul.main > li.coupon > a {width:105px; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuCoupon.png)}
+#header #mainMenuArea ul.main > li.video > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuVideo.png)}
+#header #mainMenuArea ul.main > li.library > a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/menuLibrary.png)}*/
+
+#header #mainMenuArea .subMenuArea {display:none; position:absolute; min-width:1170px; left:0; width:100%; height:43px; font-weight: bold; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/subMenuBg.png) center repeat-x; z-index:100;} /*bottom:-43px;*/
+#header #mainMenuArea ul.main > li.current .subMenuArea {display:block;}
+#header #mainMenuArea ul.main > li.current.hide .subMenuArea {display:none;}
+#header #mainMenuArea ul.main > li:hover .subMenuArea {display:block;}
+#header #mainMenuArea ul.main > li.current.hide:hover .subMenuArea {display:block;}
+
+
+#header #mainMenuArea .subMenuArea > .inner {height:100%; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/dddddd.gif) center bottom repeat-x; }
+#header #mainMenuArea .subMenuArea > .inner > .inner2 {height:100%; width:1170px; margin:0 auto;}
+#header #mainMenuArea .subMenuArea > .inner > .inner2 .breadcrumbs {float:left; margin-left:30px; color:#808080; font-size:85%; line-height:43px;}
+#header #mainMenuArea .subMenuArea > .inner > .inner2 .breadcrumbs a {color:#808080;}
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub {float:right; margin-right:30px; line-height:43px; font-size:85%; }
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub li {margin-left:40px;}
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub li a {display:block; color:#252525; text-decoration:none; height:40px;  }
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub li a:hover,
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub li.current {border-bottom:3px solid #FE7E0A;}
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub li.current a:hover{border: none;}
+#header #mainMenuArea .subMenuArea > .inner > .inner2 ul.sub li a span.num {color:#818181;}
+
+#header #mainMenuArea .intro .subMenuArea > .inner > .inner2 ul.sub {float:left; margin-left:365px;}
+#header #mainMenuArea .library .subMenuArea > .inner > .inner2 ul.sub {float:left; margin-left:525px;}
+#header #mainMenuArea .news .subMenuArea > .inner > .inner2 ul.sub {float:left; margin-left: 475px;}
+#header #mainMenuArea .guide .subMenuArea > .inner > .inner2 ul.sub {float:left; margin-left:320px;}
+#header #mainMenuArea .community .subMenuArea > .inner > .inner2 ul.sub {float:left; margin-left:700px;}
+#header #mainMenuArea .shop .subMenuArea > .inner > .inner2 ul.sub {float:left; margin-left:855px;}
+
+footer {clear:both;}
+footer .footerBlockNull1 {width:1110px; padding:0 30px; margin:0 auto;}
+footer .footerBlock {min-width:1170px;}
+footer a {text-decoration:none;}
+#footer {background:url(http://image.tw.ncsoft.com/bns/pc/official/common/footerBg.png);}
+#footerBlock1 {border-top:1px solid #ccc;}
+#footerBlock2 {height:52px; border-top:1px solid #ccc; line-height:52px;}
+#footerBlock3 {border-top:1px solid #ddd;}
+#footerBlock1 table {width:100%; table-layout: fixed; border-collapse:collapse; }
+#footerBlock1 table td {width:190px;padding:0; text-align:center; border:1px solid #ddd; border-width: 0 1px;}
+#footerBlock1 table td a {display:block; padding:10px; color:#666; text-indent:-9999px; overflow:hidden; background-position: center top;}
+#footerBlock1 table td a:hover {background-position:center -42px;}
+#footerBlock1 table td.gameTicket a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/footer_gameTicket.png);}
+#footerBlock1 table td.coupon a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/footer_coupon.png);}
+#footerBlock1 table td.gameDownload a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/footer_gameDownload.png);}
+#footerBlock1 table td.member a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/common/footer_member.png);}
+#footerBlock1 table td.rating {width: 345px; text-align:left; border-right:none; letter-spacing: -.4em;}
+#footerBlock1 table td.rating > * {vertical-align: middle; letter-spacing: normal;}
+#footerBlock1 table td.rating img {margin: 4px 5px;}
+#footerBlock1 table td.rating img,
+#footerBlock1 table td.rating span {display: inline-block; font-size: 12px; text-align: left; line-height: 1.2; color: #909090;}
+
+#content {background:#fff; min-width:1170px; min-height:500px;}
+.contentElement {min-width:1170px; clear:both; }
+.contentElement .contentElementNull1 {width:1110px; padding:0 30px; margin:0 auto;}
+.contentElement .contentElementHead {padding-top:200px; margin-bottom:38px;}
+.contentElement .contentElementHead h1 {margin-left:-10px;}
+.contentElement .contentElementBody {clear:both; min-height: 350px; margin:30px 0; border-top:2px solid #000;}
+
+.list_header {clear:both; overflow:hidden;}
+.list_header_r,
+.list_header.fr {clear:none; margin-top:-90px;}
+.list_header.wide {margin-top:-30px;}
+.list_header.wide:before {content:url(http://image.tw.ncsoft.com/bns/pc/official/on/spacer.gif);display:block;clear:both;height:0;}
+.list_header.fr .tab {padding-top:20px;}
+
+.head h2 {margin-bottom: 14px;}
+
+/* slide */
+.slideArea {position:relative; }
+.slideArea * {margin:0; padding:0;}
+.slideArea ul li {list-style:none}
+.slideArea ul.images li {display:none;}
+.slideArea ul.images li.show {display:block;}
+.slideArea ul.images li.show img {vertical-align: top;}
+.slideArea .texts {padding: 20px; background: #fbfbfb;}
+.slideArea .texts li {display:none;}
+.slideArea .texts li.show {display:block;}
+.slideArea .texts p {margin:0 60px; text-align:center;}
+.slideArea .texts .title {margin:0 60px 10px; font-weight:bold; font-size:160%; color: #000;}
+.slideArea ul.nav li {cursor:pointer; width:29px; height:29px; overflow:hidden; text-indent:-9999px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    unselectable="on"}
+.slideArea ul.nav li.prev {float:left; margin-left: 20px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/paging2L.gif);}
+.slideArea ul.nav li.next {float:right; margin-right: 20px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/paging2R.gif);}
+.slideArea ul.nav {position:absolute; width:100%; }
+
+
+/* HOME */
+.homePage #introArea {position:relative; min-width:1170px; z-index:10; border-bottom:1px solid #d3d3d3;}
+.homePage #introAreaNull1 {position:relative;}
+.homePage #introArea .bg {min-width:1170px; background:center top no-repeat;}
+.homePage #introArea .bg1 {height:1000px; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bg1.jpg)}
+.homePage #introArea .bg2 {height:1398px; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bg2.jpg)}
+.homePage #introArea .bg3 {height:902px; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bg3.jpg)}
+.homePage #introArea .bg4 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bg4.jpg); background-color:#000;} /* min-height:753px; */
+.homePage #introArea .elements {position:absolute; top:0; left:0; width:100%;}
+.homePage #introArea .elementsNull1 {position:relative; width:1170px; margin:0 auto;}
+
+.homePage .spacer {height:100px; background: #000;}
+.globalgnb .homePage .spacer {margin-top: 54px;}
+.homePage .bannerArea .spacer {height:124px; background:#000;}
+.homePage .bannerArea .banner {position:relative; overflow:hidden; min-width:1170px;}
+.homePage .bannerArea .banner p {float:left; position:relative; left:50%; margin:0; }
+.homePage .bannerArea .banner p img {float:left; position:relative; left:-50%; }
+/* .homePage .bannerArea .banner p a {position:absolute; top:0; left:0} */
+
+.homePage #bbsAreaNull1 {width:1110px; padding:30px; margin:0 auto;}
+
+.homePage .newsWrap {zoom: 1;}
+.homePage .newsWrap:after {content:""; display:block; clear:both;}
+.homePage .newsWrap .new {vertical-align: -2px;}
+.homePage .newsWrap a {color: #000; font-weight: normal;}
+.homePage .bbsList {width:540px; overflow:hidden;}
+.homePage .newsBbsArea {float:left;}
+.homePage .newsBbsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/headNews.png);}
+.homePage .communityBbsArea {float:right;}
+.homePage .communityBbsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/headCommunity.png);}
+.homePage .bbsList .head {overflow:hidden; }
+.homePage .bbsList .head h2 {float:left; height:40px; width:200px; text-indent:-9999px; background-repeat:no-repeat}
+.homePage .bbsList .head .link {float:right; margin:5px 0 0 0;}
+
+.homePage .bbsList ul {border-top:2px solid #2e2e2e; }
+.homePage .bbsList ul li {margin:0; padding:15px 20px; list-style:none; overflow:hidden; border-bottom:1px solid #d3d3d3;}
+.homePage .bbsList ul li a {float:left; text-decoration:none; }
+.homePage .bbsList ul li .cmt {float:left; color:#a7a7a7; }
+.homePage .bbsList ul li .date {float:right; color:#9D9D9D;}
+
+.homePage .imageBbsArea {clear:both; width:100%; padding-top:40px; } /*border-bottom:1px solid #d3d3d3;*/
+.homePage .imageBbsArea > ul > li {float:left; width:140px; padding:20px 23px 20px 22px; border-bottom:none;}
+.homePage .imageBbsArea ul li .block em a {font-weight:bold; font-size:120%; color:#2D2D2D; display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.homePage .imageBbsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/headImageBbs.png);}
+.homePage .imageBbsArea ul li .block ul {border:0;}
+.homePage .imageBbsArea ul li .block ul li {padding:0; border:0;}
+.homePage .imageBbsArea ul li .block ul.react li {display:inline;}
+.homePage .imageBbsArea ul li .thumb {margin-bottom:3px;}
+.homePage .imageBbsArea ul li a {float:none;}
+.homePage .imageBbsArea ul li .thumb img {width:138px; height:138px; border:1px solid #d9d9d9; }
+.homePage .imageBbsArea ul li .en {color:#9C9C9C;}
+.homePage .bottomNavi {position:relative; min-height:900px; padding-top:60px;}
+.homePage .bottomNavi * {margin:0;}
+.homePage .bottomNavi .video {position: relative; margin-left: 558px; z-index: 1;}
+.homePage .bottomNavi ul:not(.lineInfo) {position: absolute; top: 390px; right: 0; z-index: 1;}
+.homePage .bottomNavi ul:not(.lineInfo) li {margin-bottom:20px; list-style:none}
+.homePage .bottomNavi ul:not(.lineInfo) li a {display:block; height:72px; width:551px; text-indent:-9999px; overflow:hidden;}
+.homePage .bottomNavi ul:not(.lineInfo) li a:hover {background-position:0 -100px;}
+.homePage .bottomNavi ul li.li1 a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bottomBtn1.png)}
+.homePage .bottomNavi ul li.li2 a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bottomBtn2.png)}
+.homePage .bottomNavi ul li.li3 a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bottomBtn3.png)}
+.homePage .bottomNavi ul li.li4 a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bottomBtn4.png)}
+.homePage .bottomNavi ul li.li5 a {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/bottomBtn5.png)}
+.homePage .bottomNavi .artwork {position:absolute; top:17px; left:-102px;}
+.homePage .bottomNavi .like,
+.homePage .bottomNavi .line {position: absolute; top: 847px; height: 70px; box-sizing: border-box; border:1px solid #eee; }
+.lt-ie8 .homePage .bottomNavi .like,
+.lt-ie8 .homePage .bottomNavi .line {display: inline; zoom: 1;}
+.homePage .bottomNavi .like {left: 559px; width: 269px;}
+.homePage .bottomNavi .line {left: 845px; width: 264px; color:#000000; display: table; font-weight: bold; }
+.homePage .bottomNavi .line .lineInfo {display: table-cell; height: 68px; vertical-align: middle; padding: 0 10px; line-height: 1;}
+.homePage .bottomNavi .line .lineInfo .lineId span {left: 845px; width: 264px; color:#02bf32;}
+.homePage .bottomNavi .line .lineInfo .lineBtn a {display: block; width: 135px; color: #FFFFFF; text-decoration: none; text-align: center; background-color: #02BF32; -webkit-border-radius: 3px; border-radius: 3px; padding: 4px 10px; margin-top: 8px;}
+.homePage .bottomNavi .line .lineInfo .lineBtn a:hover {background-color: #00b42e;}
+.homePage .bottomNavi .line .lineInfo:before {content: ''; width: 60px; height: 60px; position: absolute; top: 50%; right: 5px; margin-top: -30px; background: url(http://image.tw.ncsoft.com/bns/pc/official/home/lineQr.png) no-repeat center; -webkit-background-size: contain; -o-background-size: contain; background-size: contain; }
+.homePage .bottomNavi .maintenanceInfo {position: absolute; top: 930px; left: 559px; width: 551px; height: 68px; display: inline-block; color:#808080;}
+.homePage .bottomNavi .maintenanceInfo p {line-height: 1.5;}
+
+.homePage h1 {position:absolute; top:-100px; }
+.homePage #ss {position:absolute; top:1070px; left:28px; width:1112px; text-align:center; }
+.homePage #ss .txtArea {float:left; width:430px; height:300px; margin-right:140px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/txt2.png); text-indent:-9999px;}
+.homePage #ss .galery {float:left;}
+.homePage #ss .galery li {list-style:none;}
+.homePage #ss .galery .imgs li {display:none;}
+.homePage #ss .galery .imgs li.current {display:block;}
+.homePage #ss .galery .nav {float:right; margin-top:10px;}
+.homePage #ss .galery .nav li {float:left; width:29px; height:29px; margin-left:8px; text-indent:-9999px; overflow:hidden; cursor:pointer; }
+.homePage #ss .galery .nav li.prev {background:url(http://image.tw.ncsoft.com/bns/pc/official/common/paging2L.gif);}
+.homePage #ss .galery .nav li.next {background:url(http://image.tw.ncsoft.com/bns/pc/official/common/paging2R.gif);}
+
+.homePage #movies {position:absolute; top:1530px; left:590px; width:560px; text-align:center; }
+.homePage #movies .txtArea {width:420px; height:130px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/txt3.png); text-indent:-9999px; }
+.homePage #movies li {list-style:none;}
+.homePage #movies .galery {margin-top:70px; }
+.homePage #movies .galery .tabs {overflow:hidden;}
+.homePage #movies .galery .tabs li {float:left; margin-right:9px; width:60px; height:60px; text-indent:-9999px; cursor:pointer; }
+.homePage #movies .galery .tabs li.current {background-position:0 -100px;}
+.homePage #movies .galery .tabs .li1 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab1.png)}
+.homePage #movies .galery .tabs .li2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab2.png)}
+.homePage #movies .galery .tabs .li3 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab3.png)}
+.homePage #movies .galery .tabs .li4 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab4.png)}
+.homePage #movies .galery .tabs .li5 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab5.png)}
+.homePage #movies .galery .tabs .li6 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab6.png)}
+.homePage #movies .galery .tabs .li7 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab7.png)}
+.homePage #movies .galery .tabs .li8 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/movieTab8.png)}
+.homePage #movies .galery .movie {width:540px; height:303px; margin-top:37px; text-align:left; background:#DAE2E6}
+
+.homePage #txt {position:absolute; top:3025px; left:400px; width:384px; height:178px; text-indent:-9999px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/txt4.png)}
+
+.homePage .bg4 #movie {margin:0 auto; text-align:center;}
+.homePage .bg4 .linkArea {margin:0; padding:0; height:100px; }
+.homePage .bg4 .linkArea a {display:block; height:100px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/link.png) center no-repeat #C92D2C; text-indent:-9999px; overflow:hidden; }
+.homePage .bg4 .linkArea a:hover {background-color:#DE9B00}
+
+.homePage #sideNavi {position:fixed; right:-20px; top:45%; z-index:100; padding:5px; background:#fff; border-radius:10px;}
+.homePage #sideNavi.appear {right:15px;}
+.homePage #sideNavi ul li {margin:10px 0; list-style:none;}
+.homePage #sideNavi ul li a {display:block; width:10px; height:10px; border-radius:5px; background:#dedede;}
+.homePage #sideNavi ul li a.current {background:#FE7E0A;}
+
+.homePage #sideNavi {
+  transition: right 0.5s ease-out 0s;
+  -moz-transition: right 0.5s ease-out 0s;
+  -webkit-transition: right 0.5s ease-out 0s;
+  -o-transition: right 0.5s ease-out 0s;
+  -ms-transition: right 0.5s ease-out 0s;
+}
+
+.homePage .para {position:absolute; display:none;}
+.homePage .para.appear {display:block;}
+
+.homePage #headArea {top:144px; left:301px; width:620px; height:320px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/logo.png); text-indent:-9999px;}
+.homePage #btns {top:485px; left:0; width:100%; text-align:center; }
+.homePage #chara1 {top:410px; left:119px; width:680px; height:580px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/chara1.png)}
+.homePage #chara2 {top:236px; right:140px; width:185px; height:240px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/chara2.png)}
+
+
+
+/* 1407追加 */
+.homePage {overflow:hidden;}
+.homePage #spBnrSection {min-width:1170px; height:500px; -moz-user-select: none;-khtml-user-select: none;user-select: none;}
+.homePage #spBnrSection ul li {margin:0; list-style:none; }
+.homePage #spBnrSectionNull1 {position:relative/*ie7*/; min-width:1170px; height:500px; overflow:hidden; background:#000;
+    transition:           height 0.2s ease-in-out 0s;
+    -moz-transition:      height 0.2s ease-in-out 0s;
+    -webkit-transition:   height 0.2s ease-in-out 0s;
+    -o-transition:        height 0.2s ease-in-out 0s;
+    -ms-transition:       height 0.2s ease-in-out 0s;
+}
+.homePage #spBnrSectionNull2 {position:relative; width:1170px; margin:0 auto; height:100%;}
+.homePage #spBnrSection .listWrap {position:absolute; width:100%; height:100%;}
+/*.homePage #spBnrSectionNull1.expand {height:650px;}*/
+.homePage #spBnrSection .bgImg {position:absolute; left:50%; top:0; height:100%;
+    transition:           top 1s ease-in-out 0s;
+    -moz-transition:      top 1s ease-in-out 0s;
+    -webkit-transition:   top 1s ease-in-out 0s;
+    -o-transition:        top 1s ease-in-out 0s;
+    -ms-transition:       top 1s ease-in-out 0s;
+}
+.homePage #spBnrSection .bgImg li {position:absolute; left:-50%; text-align:center; height: 500px; overflow: hidden;}
+.homePage #spBnrSection .charaImg {position:absolute; top:0; right:0;
+    transition:           right 1s ease-in-out 0s;
+    -moz-transition:      right 1s ease-in-out 0s;
+    -webkit-transition:   right 1s ease-in-out 0s;
+    -o-transition:        right 1s ease-in-out 0s;
+    -ms-transition:       right 1s ease-in-out 0s;
+}
+.homePage #spBnrSection .charaImg li {position:absolute; top:0;}
+.homePage #spBnrSection .txtImg {position:absolute; top:0; left:0;
+    transition:           left 1s ease-in-out 0s;
+    -moz-transition:      left 1s ease-in-out 0s;
+    -webkit-transition:   left 1s ease-in-out 0s;
+    -o-transition:        left 1s ease-in-out 0s;
+    -ms-transition:       left 1s ease-in-out 0s;
+}
+.homePage #spBnrSection .txtImg li {position:absolute; top:0; left:115px; height:650px;}
+.homePage #spBnrSection .txtImg li .txt {position:relative; z-index:1}
+.homePage #spBnrSection .txtImg li .expandTxt {height:0; overflow:hidden;
+    transition:           height 0.2s ease-in-out 0s;
+    -moz-transition:      height 0.2s ease-in-out 0s;
+    -webkit-transition:   height 0.2s ease-in-out 0s;
+    -o-transition:        height 0.2s ease-in-out 0s;
+    -ms-transition:       height 0.2s ease-in-out 0s;
+}
+.homePage #spBnrSection .txtImg li .expandTxt .expandTxtImg {position:relative; display:block;}
+.homePage #spBnrSection .txtImg li .expandTxt .expandBgWrap {position:absolute; bottom:0; height:0; overflow:hidden;
+    transition:           height 0.2s ease-in-out 0s;
+    -moz-transition:      height 0.2s ease-in-out 0s;
+    -webkit-transition:   height 0.2s ease-in-out 0s;
+    -o-transition:        height 0.2s ease-in-out 0s;
+    -ms-transition:       height 0.2s ease-in-out 0s;
+}
+.homePage #spBnrSectionNull1.expand .txtImg li .expandTxt .expandBgWrap {height:650px;}
+.homePage #spBnrSection .txtImg li .expandTxt .expandBg {position:absolute; bottom:0;}
+.homePage #spBnrSection .txtImg li .expandTxt .expandBgWrapType1 {left:-115px; width:1130px;} /* left:-1030px; width:1930px; */
+.homePage #spBnrSection .txtImg li .expandTxt .expandBgWrapType2 {left:-115px; width:800px;}
+.homePage #spBnrSection .txtImg li .expandTxt .expandBgWrapType3 {left:-115px; width:740px;}
+.homePage #spBnrSectionNull1.expand .txtImg li .expandTxt {height:200px}
+/* #spBnrSection .bgImg li.prevBg {top:-650px;}
+#spBnrSection .bgImg li.nextBg {top:100%;} */
+.homePage #spBnrSection .clickArea a {position:absolute; top:0; left:120px; width:940px; height:650px; z-index:2; background:url(http://static.ncsoft.jp/images/common/spacer.gif); text-indent:-9999px; overflow:hidden; }
+.homePage #spBnrSection ul.nav li {position:absolute; top:195px; width:100px; height:100px; text-indent:-9999px; overflow:hidden; cursor:pointer; }
+.homePage #spBnrSection ul.nav li.prev {left:6px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/navL.png);}
+.homePage #spBnrSection ul.nav li.next {right:6px; background:url(http://image.tw.ncsoft.com/bns/pc/official/home/navR.png)}
+
+#spBnrThumbnails {position:relative/*ie7*/; top: 40px; clear:both; height:0; background:#ededed; overflow:hidden; box-shadow:0 5px 5px rgba(0,0,0,.3); -moz-user-select: none;-khtml-user-select: none;user-select: none;
+    transition:           height 0.2s ease-in-out 0s;
+    -moz-transition:      height 0.2s ease-in-out 0s;
+    -webkit-transition:   height 0.2s ease-in-out 0s;
+    -o-transition:        height 0.2s ease-in-out 0s;
+    -ms-transition:       height 0.2s ease-in-out 0s;
+}
+.small + #spBnrThumbnails {top: 0;
+    transition:           top 0.2s ease-in-out 0s;
+    -moz-transition:      top 0.2s ease-in-out 0s;
+    -webkit-transition:   top 0.2s ease-in-out 0s;
+    -o-transition:        top 0.2s ease-in-out 0s;
+    -ms-transition:       top 0.2s ease-in-out 0s;
+}
+#spBnrThumbnails.expand {height:130px;}
+#spBnrThumbnailsNull1 {position:relative; height:130px;  /* overflow:hidden; margin:0 auto; width:1170px; */}
+#spBnrThumbnails .ulWraper {position:absolute; top:0; left:1170px;
+    transition:           left 0.5s ease-out 0s;
+    -moz-transition:      left 0.5s ease-out 0s;
+    -webkit-transition:   left 0.5s ease-out 0s;
+    -o-transition:        left 0.5s ease-out 0s;
+    -ms-transition:       left 0.5s ease-out 0s;
+}
+#spBnrThumbnails.expand .ulWraper {left:0;}
+#spBnrThumbnails ul {position:absolute; top:0; left:0; padding:0;} /* 30px */
+#spBnrThumbnails ul li {float:left; list-style:none;}
+#spBnrThumbnails ul li a {display:block; background:right top no-repeat;
+    transition:           background-position 0.2s ease-in-out 0s;
+    -moz-transition:      background-position 0.2s ease-in-out 0s;
+    -webkit-transition:   background-position 0.2s ease-in-out 0s;
+    -o-transition:        background-position 0.2s ease-in-out 0s;
+    -ms-transition:       background-position 0.2s ease-in-out 0s;
+}
+#spBnrThumbnails ul li a span {display:block; height:130px; width:245px; background:left top no-repeat; text-indent:-9999px; overflow:hidden;}
+#spBnrThumbnails ul li a:hover {background-position:right -3px;}
+#spBnrThumbnails ul li:nth-child(even) {background-color:#E4E4E4}
+#spBnrThumbnails .cover {position:absolute; top:0; width:60px; height:100%;}
+#spBnrThumbnails .cover.active {cursor:pointer; }
+#spBnrThumbnails .coverL {left:0; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/thumbCoverL.png)}
+#spBnrThumbnails .coverR {right:0; background-image:url(http://image.tw.ncsoft.com/bns/pc/official/home/thumbCoverR.png)}
+#spBnrThumbnails .slider {position:absolute; top:110px; left:0;}
+#spBnrThumbnails .slider .sliderHandle {position:absolute; top:0; left:0; height:20px; width:100px; cursor:ew-resize; }
+#spBnrThumbnails .slider .sliderHandle.animate { /* mousedownしたらclass削除される */
+    transition:           left 1s ease-in-out 0s;
+    -moz-transition:      left 1s ease-in-out 0s;
+    -webkit-transition:   left 1s ease-in-out 0s;
+    -o-transition:        left 1s ease-in-out 0s;
+    -ms-transition:       left 1s ease-in-out 0s;
+}
+#spBnrThumbnails .slider .sliderHandle span {position:absolute; left:0; bottom:0; height:5px; width:100%; background:rgba(255,3,2,.8); }
+.lt-ie9 #spBnrThumbnails .slider .sliderHandle span {background-color:#ff0302;}
+
+.homePage .fixedBannerArea {}
+.homePage .fixedBannerArea ul {padding: 20px 12px 50px; overflow:hidden;}
+.homePage .fixedBannerArea ul li {float:left; margin:0; list-style:none; }
+.homePage .fixedBannerArea ul.num3 li {margin:0 8px;}
+.homePage .fixedBannerArea ul.num3 li img {width:343px; height:118px; border:1px solid #ddd; }
+.homePage .fixedBannerArea ul.num4 li {margin:0 5px;}
+.homePage .fixedBannerArea ul.num4 li img {width:258px; height:88px; border:1px solid #d9d9d9; }
+
+
+/* æŽ²ç¤ºæ¿ */
+
+/*
+
+
+
+.bbsFunctionArea:after {content:url(http://image.tw.ncsoft.com/bns/pc/official/on/spacer.gif);display:block;clear:both;height:0;} clearFix
+.bbsFunctionArea {display:inline-block;} clearFix
+.bbsFunctionArea {display:block;} clearFix
+.bbsFunctionArea {padding:20px; border-bottom:2px solid #d4d4d4;}
+
+/* News */
+#news .contentElementBody {border-top: solid 2px #2e2e2e}
+
+#news #newsListHead {color: #000; border-bottom: 1px solid #D3D3D3; zoom: 1;}
+#news #newsListHead:after {content: ""; display: block; clear: both;}
+#news #newsListHead > p {float: left; margin: 0; text-align: center; font-weight: bold; padding: 8px 0;}
+#news #newsListHead .no {width: 60px;}
+#news #newsListHead .title {width: 946px;}
+#news #newsListHead .date {width: 100px;}
+
+#news #newsList ul {list-style: none;}
+#news #newsList ul li {margin: 0; padding: 20px 0; color: #000; border-bottom: 1px solid #D3D3D3; zoom: 1;}
+#news #newsList ul li:after {content: ""; display: block; clear: both;}
+#news #newsList ul li > .date {float: right; margin-right: 15px;}
+#news #newsList ul li > .no {float: left; display: block; width: 60px; text-align: center;}
+#news #newsList ul li > a {margin-left: 10px; text-decoration: none; color: #000;}
+#news #newsList ul li > a:hover {text-decoration: underline;}
+
+#newsDetail {color: #000;}
+#newsDetail .detailHead {position: relative; padding: 30px 0 30px 20px; overflow: hidden; zoom: 1;}
+#newsDetail .detailHead:after {content: ""; clear: both; display: block;}
+#newsDetail .detailHead .subject {float: left; width: 1040px; margin: 0 0 5px; padding-bottom: 19px; font-size: 200%; font-weight: bold;}
+#newsDetail .detailHead .snsBtn {float: right; width: 33px;}
+#newsDetail .detailHead .date {position: absolute; bottom: 17px; font-size: 12px; color: #828282; padding: 0;}
+#newsDetail .detailBody,
+#newsDetail .content {overflow: hidden; padding: 20px; line-height: 2.4; border-top: 1px solid #e6e6e6;}
+
+/* News renewal 2020.01.16 */
+#news.bnrNews {padding-top: 143px;}
+#news.bnrNews .contentElementBody {border-top: none;}
+#news.bnrNews .contentElementHead {padding: 0; margin: 0; text-align: center;}
+#news.bnrNews #newsListHead {border-top: 2px solid #000;}
+
+/* event list */
+ul.eventList li {margin:0; padding:20px; list-style:none; overflow:hidden; border-bottom:1px solid #d3d3d3; }
+ul.eventList li a {text-decoration:none;}
+ul.eventList li .banner {float:left; margin-right:20px; height:120px;} /*width:350px;*/
+ul.eventList li .title {display:block; font-size:120%; font-weight:bold; color: #000;}
+ul.eventList li .date {display:block; font-size:85%; color:#9c9c9c; }
+ul.eventList li .exp {display:block; margin-top:1em; font-size:85%; color:#999;}
+
+/* news main */
+.newsMain .contentElementBody {border-top:none; overflow:hidden; }
+.newsMain #block1 {float:left; width:635px;}
+.newsMain ul.eventList {border-top:2px solid #2e2e2e; }
+.newsMain ul.eventList li .banner img {width:272px; height:93px;}
+.newsMain #block2 {float:right; width:445px;}
+.newsMain .newsList ul {border-top:2px solid #2e2e2e; }
+.newsMain .newsList ul li {margin:0; padding:15px 20px; list-style:none; border-bottom:1px solid #d3d3d3; color: #000;}
+.newsMain .newsList ul li a {text-decoration:none; }
+.newsMain .newsList ul li .cmt {color:#a7a7a7; }
+.newsMain .block .head {overflow:hidden;}
+.newsMain .block .head h2 {float:left; height:40px; width:200px; background-repeat:no-repeat; text-indent:-9999px;}
+.newsMain .block .eventListArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/news/mainHeadEvent.png)}
+.newsMain .block .newsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/news/mainHeadNews.png)}
+.newsMain .block .maintenanceArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/news/mainHeadMaintenance.png)}
+.newsMain .block .head .link {float:right; padding-top:5px; margin:0;}
+.newsMain .block .head .link a.btn {}
+.newsMain .block .newsList + .newsList {margin-top:40px; }
+
+/* ã‚³ãƒŸãƒ¥ãƒ‹ãƒ†ã‚£ãƒ¡ã‚¤ãƒ³ */
+/* .communityMain .contentElementBody {border-top:none; overflow:hidden; }
+.communityMain #block1 {float:left; width:730px;}
+.communityMain #block1 ul {border-top:2px solid #2e2e2e; }
+.communityMain #block1 ul li {margin:0; padding:15px 20px; list-style:none; border-bottom:1px solid #d3d3d3;}
+.communityMain #block1 ul li a {text-decoration:none; }
+.communityMain #block1 ul li .cmt {color:#a7a7a7; }
+.communityMain #block2 {float:right; width:350px;}
+.communityMain #block2 ul {border-top:2px solid #2e2e2e; }
+.communityMain #block2 ul li {margin:0; padding:17px; list-style:none; overflow:hidden; border-bottom:1px solid #d3d3d3; }
+.communityMain #block2 ul li a {text-decoration:none;}
+.communityMain #block2 ul li .block {overflow:hidden; color:#bbb}
+.communityMain #block2 ul li .block em a {font-weight:bold; font-size:120%; color:#2D2D2D; display:block; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.communityMain #block2 ul li .block ul {border:0;}
+.communityMain #block2 ul li .block ul li {padding:0; border:0;}
+.communityMain #block2 ul li .block ul.react li {display:inline;}
+.communityMain #block2 ul li .thumb {float:left; margin-right:20px; }
+.communityMain #block2 ul li .thumb img {width:120px; height:120px; border:1px solid #d9d9d9; }
+
+.communityMain .block .head {overflow:hidden;}
+.communityMain .block .head h2 {float:left; height:40px; width:200px; background-repeat:no-repeat; text-indent:-9999px;}
+.communityMain .block .kouryakuBbsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/community/mainHeadKouryaku.png)}
+.communityMain .block .kouryuuBbsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/community/mainHeadKouryu.png)}
+.communityMain .block .imageBbsArea .head h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/community/mainHeadImage.png)}
+.communityMain .block .head .link {float:right; padding-top:5px; margin:0}
+.communityMain .block .head .link a.btn {}
+.communityMain .block .bbsList + .bbsList {margin-top:40px; } */
+
+/* ã‚·ãƒ§ãƒƒãƒ—ãƒªã‚¹ãƒˆ */
+/* .shopList {position:relativeie7; overflow:hidden; }
+.shopList .mainImgArea {position:relative; float:left; left:50%;margin:0;}
+.shopList .mainImgArea img {float:left; position:relative; left:-50%; }
+.shopList .blockSet {overflow:hidden; padding-top:15px; }
+.shopList .block {width:540px; font-size:85%; color:#999; }
+.shopList #block1 {float:left;  }
+.shopList .block .body {padding-top:30px; padding-left:190px;}
+.shopList .block .body a.btn {width:322px; margin-bottom:10px; }
+.shopList #block1 .body {background:url(http://image.tw.ncsoft.com/bns/pc/official/shop/imgKaimo.jpg) left 30px no-repeat;}
+.shopList #block2 .body {background:url(http://image.tw.ncsoft.com/bns/pc/official/shop/imgCoupon.jpg) left 30px no-repeat;}
+.shopList #block2 {float:right;}
+.shopList .block h2 {float:left; height:40px; width:200px; background:left top no-repeat; text-indent:-9999px; }
+.shopList #block1 h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/shop/mainHeadKaimo.png)}
+.shopList #block2 h2 {background-image:url(http://image.tw.ncsoft.com/bns/pc/official/shop/mainHeadCoupon.png)}
+.shopList .block .head {border-bottom:1px solid #919191; overflow:hidden; }
+.shopList .block .head .link {padding-top:5px; margin:0;}
+.shopList .block .head .link a.btn {float:right;}
+ */
+/* ã‚·ãƒ§ãƒƒãƒ—è©³ç´° */
+/*.shopDetail {overflow:hidden; }
+.shopDetail .mainImgArea {position:relative; float:left; left:50%;margin:0;}
+.shopDetail .mainImgArea img {float:left; position:relative; left:-50%; }
+.shopDetail .expArea {position:relative; width:1110px; background:#fafafa; border-radius:15px;}
+.shopDetail .expArea .expSummary img {border-radius:15px;}
+.shopDetail .expArea .expAreaBody .itemList {padding:10px 20px 30px;}
+.shopDetail .itemList .lr {padding:20px 20px 30px; overflow:hidden; border-bottom:1px solid #dfdfdf; }
+.shopDetail .itemList .lr:last-child {border-bottom:none; padding-bottom:0; }
+.shopDetail .itemList .itemSet {width: 500px; }
+.shopDetail .itemList .itemSet .imgArea {float:left; margin-right:40px;}
+.shopDetail .itemList .itemSet .imgArea img {}*/ /*border:1px solid #d8d8d8;*/
+/*.shopDetail .itemList .itemSet p {margin:0;}
+.shopDetail .itemList .itemSet .name {margin-bottom:10px; font-size:130%; font-weight:bold; }
+.shopDetail .itemList .itemSet .itemExp {font-size:85%; color:#888;}
+.shopDetail .itemList a {cursor:pointer; text-decoration:none; }
+.shopDetail .itemList a:hover p {text-decoration:underline; }
+.shopDetail .childItems p img {margin-left:10px;}
+.shopDetail .childItemsExp {clear:both; margin-left:155px; padding:20px; background:#F1F1F1; overflow:hidden; color:#444}
+.shopDetail .childItemsExp * {margin:0; padding:0; }
+.shopDetail .childItemsExp .childLr {padding:15px 0 ; border-bottom:1px solid #ddd; overflow:hidden;}
+.shopDetail .childItemsExp .childLr:first-child {padding-top:0; }
+.shopDetail .childItemsExp .childLr:last-child {border:none; padding-bottom:0; }
+.shopDetail .childItemsExp .childSet {width:400px; padding-right:10px;}
+.shopDetail .childItemsExp .childName {font-weight:bold; }
+.shopDetail .childItemsExp .childExp {font-size:85%; color:#888}
+.shopDetail .recommendArea {margin-top:30px; padding:30px 20px; border:1px solid #dcdcdc; border-radius:15px;}
+.shopDetail .recommendArea h2 {margin:0; height:40px; background:url(http://image.tw.ncsoft.com/bns/pc/official/shop/headRecommend.png) left top no-repeat; text-indent:-9999px;}*/
+/* ã‚²ãƒ¼ãƒ ã‚¬ã‚¤ãƒ‰ */
+.gameGuide .multiColumn {overflow:hidden;}
+.gameGuide .multiColumn .column {float:left;}
+.gameGuide .multiColumn3 .column {width:249px; margin-right:29px;}
+.gameGuide .multiColumn3 .column.last {margin-right:0;}
+.gameGuide .gameGuideHead {padding:45px 0; overflow:hidden;}
+.gameGuide .gameGuideHead h1 {font-weight: bold; font-size: 38px;}
+.gameGuide .type1 dd h2 {font-weight: bold; font-size: 30px;}
+.gameGuide .type1 dd h3 {font-weight: bold; font-size: 24px; color: #000; margin-top: 30px;}
+.gameGuide .type1 dt h2{font-weight: bold; font-size: 34px;}
+
+.gameGuide .type1 dd p + h2 {margin-top: 30px;}
+.gameGuide .type1 dd .img {margin-top: 30px;}
+.gameGuide .type1 dd .img2 {margin-bottom: 35px;}
+.gameGuide .type1 dd .tableArea .iconList li {display: inline-block; padding: 0 5px;}
+.gameGuide .type1 dd .tableArea .tblTac {text-align: center;}
+.gameGuide .type1 dd p img {vertical-align: middle;}
+.gameGuide .type1 dd p img {max-width: 100%;}
+.gameGuide .type1 dd .topicAreaMt0 {margin-top: 0;}
+.gameGuide .gameGuideHead h1 {color:#000; width:205px; line-height: 1.35; padding-left:20px; float:left;}
+.gameGuide .gameGuideHead p {float:right; width:805px; padding-right:20px; margin:0; padding-top: 11px;}
+.gameGuide #setup.slideArea .texts {height: 110px;}
+.gameGuide #setup.slideArea ul.nav {top: 650px;}
+
+
+/* æ±Žç”¨ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆ */
+.cage:after {content:url(http://image.tw.ncsoft.com/bns/pc/official/on/spacer.gif);display:block;clear:both;height:0;} /* clearFix */
+.cage {display:inline-block;} /* clearFix */
+.cage {display:block;} /* clearFix */
+.cage {padding:20px; border:1px solid #E4E3E1; background:#FCFBF9; color:#888;}
+.cage h2,
+.cage h3,
+.cage h4,
+.cage h5 {color:#2d2d2d;}
+.cage.cageTp2 {background:#F4F4F4; border-color:#e9e9e9;}
+.contentElementBody > .cage:first-child {border-top:none;}
+.cage + .cage {margin-top:30px;}
+
+.section {margin:40px 0}
+.section:first-child {margin-top:0}
+.section:last-child {margin-bottom:0}
+
+table.type1 {margin:0.5em 0; width:100%;}
+table.type1 th,
+table.type1 td {border:1px solid #d2d2d2; }
+table.type1 th:first-child,
+table.type1 td:first-child {border-left:none}
+table.type1 th:last-child,
+table.type1 td:last-child {border-right:none}
+
+.topicArea {margin:30px 0; padding:20px; color:#818181; background: #fbfbfb;}
+.topicArea.attention {padding:20px 20px 20px 200px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/topic.png) 50px center no-repeat #fbfbfb;}
+.topicArea .separate {zoom: 1;}
+.topicArea .separate:after {content: ""; display: block; clear: both;}
+.topicArea .separate + .separate {margin-top: 20px; padding-top: 20px; border-top: solid 1px #ececec;}
+.topicArea .separate h3 {margin-top: 0;}
+.topicArea .title {font-size:140%; color:#FE7E0A; font-weight: bold;}
+
+.gameGuide .type1 dd .topicArea h3 {font-weight: bold; font-size: 24px; color: #000; margin-top: 0;}
+.gameGuide .type1 dd .topicArea h4 {font-weight: bold; font-size: 20px; color: #000; margin-top: 40px;}
+.gameGuide .type1 dd .topicArea h4:first-child {margin-top: 0;}
+.gameGuide .type1 dd .topicArea.topicAreaMt0 h4 {font-size: 16px;}
+
+dl.type1:after{content:url(http://image.tw.ncsoft.com/bns/pc/official/on/spacer.gif);display:block;clear:both;height:0;} /* clearFix */
+dl.type1{display:inline-block;} /* clearFix */
+dl.type1{display:block;} /* clearFix */
+dl.type1 dt {position:relative; float:left; clear:left; padding:40px 0 40px 20px; width:235px; border-top:2px solid #9a9a9a; }
+dl.type1 h2 {font-size:180%; color:#000; line-height: 1em; font-weight: bold;}
+dl.type1 dd {margin-left:285px; padding:40px 20px 68px 0; width:805px; border-top:2px solid #9a9a9a; color:#000;}
+dl.type1 dt.dt1,
+dl.type1 dd.dd1 {border-color:#2e2e2e;}
+dl.type1 dt .artwork {position:absolute; top:100px; right:0;}
+dl.type1 dd h2 {margin-bottom: 30px;}
+dl.type1 .cyuu {color:#FE7E0A}
+dl.type1 table.type1 th,
+dl.type1 table.type1 td {padding:10px;}
+.headText {font-weight: bold; font-size: 16px; color: #000;}
+
+.sort {display:inline-block;}
+.lt-ie8 .sort {display:inline;}
+.sort li {padding-right:15px; background:url(http://image.tw.ncsoft.com/bns/pc/official/common/sort.gif) right 3px no-repeat; cursor:pointer; font-size:12px;}
+.sort li.selected {background-position:right -97px;}
+.sort.disabled li {color:#ccc; cursor:auto;}
+.sort.disabled li.selected {background-position:right 3px;}
+.sort li {display:inline-block;}
+.lt-ie8 .sort li {display:inline;}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

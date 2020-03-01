@@ -1,0 +1,1002 @@
+	 jQuery.fn.textNodes = function() {
+			var ret = [];
+
+			(function(el){
+				if (!el) return;
+				if ((el.nodeType == 3)) {
+					ret.push(el);
+				} else {
+					for (var i=0; i < el.childNodes.length; ++i) {
+						arguments.callee(el.childNodes[i]);
+				}
+			}})(this[0]);
+
+			return jQuery(ret);
+	 };
+
+
+	jQuery.fn.autolink = function() {
+		
+		var url_regexp = /((http|https):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g,
+		support_webkit_line_clamp = jQuery('body').hasClass('support-webkit-line-clamp');
+
+		//for support_webkit_line_clamp bug
+		//var url_regexp = /(https?:\/\/[　-熙ぁ-ヴーA-Za-z0-9~\/._\?\&=\-%#\+:\;,\@\']+)/;
+
+
+
+		return this.each(function(){
+			var desc = jQuery(this);
+			desc.find('a[href]').attr('target','_blank');
+			desc.textNodes().each(function(){
+				var text = jQuery(this);
+				if(text.parent().get(0).nodeName != 'A') {
+
+					this.data = this.data.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+					text.replaceWith(this.data.replace(url_regexp, function($0, $1) {
+
+						if(!support_webkit_line_clamp){
+							return '<a href="' + $1 +'" target="_blank">' + $1 + '</a>';
+						}else{
+							return '<a data-href="' + $1 +'" target="_blank">' + $1 + '</a>';
+						}
+
+					}));
+				}
+			});
+
+			if(support_webkit_line_clamp==true){
+				setTimeout((function(){
+					desc.find('a[data-href]').each(function(){
+						jQuery(this).attr('href',jQuery(this).attr('data-href'));
+						jQuery(this).removeAttr('data-href');
+					});
+				}),0);
+			}
+			
+
+		});
+	};
+
+
+var _common = {};
+_common.moreBox = function(){
+
+	return {
+		render : function(){
+			$("div.cut").moreBox();
+		},
+		
+		_working : null,
+		event : function(type){
+			var $this = this;
+			switch(type){
+				case 'off':
+					$(window).off('.moreBox');
+				break;
+
+				case 'on':
+					$(window).on('resize.moreBox', function(){			
+						if($this._working) clearTimeout($this._working);
+						$this._working = setTimeout(function(){
+							$this.render();
+						},0);
+					});
+				default:
+				break;
+			}
+		}	
+	};
+
+};
+
+
+jQuery.fn.moreBox = function(options) {
+
+
+		var _has_shortCnt = function(obj){
+			return $(obj).hasClass('shortCnt');
+		};
+
+		var _is_over = function(obj){
+
+			var has_shortCnt = _has_shortCnt(obj);
+
+			$(obj).addClass('shortCnt');
+			var org_height = $(obj).height();
+			$(obj).removeClass('shortCnt');
+			var cut_height = $(obj).height();
+
+			if(has_shortCnt) $(obj).addClass('shortCnt');
+
+			return (org_height - cut_height > 10) ? true:false;
+
+		};
+
+			
+		return this.each(function(){
+			
+			var has_shortCnt = _has_shortCnt(this);
+			if(has_shortCnt==true) return;
+
+			var is_over = _is_over(this);				
+
+			if(is_over){
+				if ($(this).next('div.cut_a').length==0){
+					$(this).after("<div class='cut_a'><a href='#' onclick='jQuery(this).moreBoxClick();return false;'>...もっと見る</a></div>");
+				}				
+			}else{
+				$(this).next('div').remove();
+				$(this).removeClass('shortCnt');
+			}
+
+		});
+
+		
+
+	};
+
+	jQuery.fn.moreBoxClick = function(options){
+
+		var $a = $(this),
+		$div = $a.parent().prev();		
+		$div.addClass('shortCnt');
+		$div.next('div').remove();
+
+	};
+
+
+
+
+  //SNS LIST
+  jQuery.fn.tooltip = function(delay){
+  		delay = delay || 150;
+  		$(this).each(function(){
+	  		var time = '';
+	    	var toolTip = $(this).find(".tooltip");	
+	    	$(this).bind("mouseenter",function(){    			    	
+	   				clearTimeout( time );
+	   			toolTip.show();
+		   	}); 
+		   		
+		   	$(this).bind("mouseleave",function(){
+				    	time = setTimeout(function() {	    	
+			    			toolTip.hide();
+			    		},delay);
+			});
+		});
+		return this;
+  };
+  
+
+ jQuery.fn.cssCheckbox = function (staticUrl) {
+	  	staticUrl = staticUrl || "";
+		var imgObj = '<img src="'+ staticUrl +'/images/common/chk1_off.png" alt="" class="checkbox" />';
+		
+		if($(this).prev().attr("class") != "checkbox"){
+			$(this).before(imgObj);
+		}
+		
+		if ($(this).attr("checked") == 'checked') {
+			$(this).prev().attr("src", function(){ return jQuery(this).attr("src").replace("_off","_on"); });		
+		} else {
+			$(this).prev().attr("src", function(){ return jQuery(this).attr("src").replace("_on","_off"); });		
+		}
+		
+		$(this).prev().bind("click",function(){ $(this).next().click(); });
+		
+		$(this).click( function() {
+			if ($(this).attr("checked") == 'checked') {
+				$(this).prev().attr("src", 
+						function(){ 
+							return $(this).attr("src").replace("_on","_off");
+						});
+			} else {
+				$(this).prev().attr("src", 
+						function(){ 
+							return $(this).attr("src").replace("_off","_on");
+						});
+			}
+		}).hide();
+		
+		return this;
+	};
+
+//SNS LIST 
+ jQuery.fn.menuTool = function(){
+	 $(".article_act").each(function(){
+		var parentObj = $(this);
+		var btnUp = $(this).find(".mark");
+		var btnDown = $(this).find(".mark_2");
+		var ul = $(this).find("ul");
+		btnUp.bind("click",function(){	  			
+			btnDown.show();
+			$(this).hide();
+			ul.show();	
+			parentObj.addClass("active");
+		});
+		
+		btnDown.bind("click",function(){	  			
+			btnUp.show();
+			$(this).hide();
+			ul.hide();
+			parentObj.removeClass("active");	  		
+		});
+	 });
+	 return this;
+};
+
+
+/*ajax*/
+function execAjax(sendURL, sData, sdataType, succ, sendType, obj1, obj2 ,obj3,obj4,obj5){
+	
+	if(sendType == undefined || sendType==""){
+		sendType = "GET";
+	}
+	var sType = sendType;
+	jQuery.ajax({
+		type:sType
+		,async:false 
+		,url:sendURL
+		,dataType:sdataType
+		,timeout:30000
+		,cache:false
+		,data:sData
+		,contentType:"application/x-www-form-urlencoded;charset=UTF-8"
+		,error:function(request,status,error){
+			alert(error+":"+status);
+			return error;
+		}
+		,success:function(response,status,request){
+			succ(response, obj1, obj2 ,obj3,obj4,obj5);
+		}
+		,beforeSend:function(){
+		}
+		,complete:function(){
+		} 
+	});
+}
+
+/*init form data*/
+function initFormData(formName, type){
+	var leng = $(formName).children.length;
+	for(var idx = 0; idx < leng; idx++){
+		if(idx!=0) $($(formName).children()[idx]).remove();
+	}
+	$($(formName).children()[0]).attr("check","static");
+	if(type == "hide" ){ 
+		$( $(formName).children()) .hide();
+	}
+	if(type == "init" ){
+		var sData = $(formName).children()[0];
+		var sForm = $(sData).find("input");
+		for(var idx = 0; idx < sForm.length; idx++){
+			$(sForm).val("");
+		}
+	}
+}
+
+/*replaceAll*/
+String.prototype.replaceAll = function(str1,str2){
+	var str = this;
+	var result = str.replace(eval("/"+str1+"/gi"),str2 );
+	return result;
+}
+
+var commonFile = {
+	
+	/*
+		checkImageExt
+		gubun => true  : image , false : image+	
+	*/
+	checkFileExt : function(gubun){
+		var isImg = gubun || false;
+		var enableUploadFileExt;
+		
+		if(isImg){		
+			enableUploadFileExt = new Array("bmp","jpg","jpeg","gif","png");
+		}else{
+			enableUploadFileExt = new Array("bmp","jpg","jpeg","gif","png","doc","docx","ppt","pptx","xls","xlsx","psd","avi","wmv","mpeg");		
+		}
+
+		var uploadImgObjName = $("#cmmfile_ncPhoto").val();
+		
+		var startPoint = 0;
+		var isImageFile = false;
+		
+		for(var i=uploadImgObjName.length-1; i>=0;i--){
+			if(uploadImgObjName.charAt(i) == "."){
+				startPoint =i;
+				break;
+			}
+		}
+		var uploadImgObjExt = uploadImgObjName.substring(startPoint+1,uploadImgObjName.length);
+		for(var i=0;i<enableUploadFileExt.length;i++){
+			if(uploadImgObjExt.toLowerCase() == enableUploadFileExt[i]){
+				isImageFile = true;
+				break;
+			}
+		}
+		
+		if(!isImageFile){
+			var errMsg = 6;
+			if(uploadImgObjName == "") {
+				errMsg = 10;
+			}
+			commonFile.errorMessageSet(errMsg); 
+			isImgFile = false;
+			
+			return isImgFile;
+		}else{
+			commonFile.errorMessageSet("");
+			isImgFile = true;
+			
+			return isImgFile;
+		}
+	},
+
+	
+	errorMessageSet : function(sect){
+		var errMsg = "";
+		if(sect != ""){
+			errMsg = $("#errorMsg"+sect).val();
+			
+		}
+		$("#cmmfileErrMsg").text(errMsg);
+	},
+
+	insertFileUpload : function(callbackResponse){
+		
+		if(!commonFile.checkFileExt()){
+			return false;
+		}
+
+		
+	   $("#cmmFileFormTemp").ajaxForm({
+			dataType:"json"		
+	        ,success: function(data) {
+		        	
+					if(data == null){
+						alert('Temp File Upload Error');
+						return false;
+					}
+					
+					var success = data.result.items[0].successed;
+					
+					$("#cmmFileUpForm .tFile").remove();
+
+					if(success){
+						var unique = data.result.items[0].uniq;
+						unique = unique.replaceAll("@","");
+						
+						var id = data.result.items[0].uniq;
+						var fileName = data.result.items[0].name;
+						var type = data.result.items[0].type;
+						var size = data.result.items[0].size;
+						
+						$("#cmmFileUpForm").append( $("<input/>" , { "type" : "hidden" , "name" : "filename" , "value" : fileName , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "uniq" , "value" : id , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "type" , "value" : type , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "cropper" , "value" : "" , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "cropStartX" , "value" : "1" , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "cropStartY" , "value" : "1" , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "cropWidth" , "value" : "1" , "class" : "tFile" }) )
+						.append( $("<input/>" , { "type" : "hidden" , "name" : "cropHeight" , "value" : "1" , "class" : "tFile" }) );
+						
+						 hidePopupLayer(cmmFileUploadForm, {transitionDuration:250});
+					}
+				
+				/*init fileValue*/
+				$("#file_ncPhoto").val('');				
+				if(callbackResponse){
+					callbackResponse();
+				}
+	        } 
+	        ,error:function(request,status,error){				
+				commonFile.errorMessageSet('3');
+			}
+	    });
+	 $("#cmmFileFormTemp").submit();
+    	return false;
+	}//end insertFileUpload
+
+};
+
+
+function makeShortUrl(strURL) {
+	var objSns = {
+			shortner	:	'http://api.bit.ly/v3/shorten',
+			login		:	'janryumon2',
+			apikey		:	'R_68e85604a8b8e46e2930e0665acb9969',
+			longURL	: 	escape(strURL)	
+	};	
+	
+	jQuery.ajax({
+		  type:'GET',
+		  url: objSns.shortner+"?login="+objSns.login+"&apiKey="+objSns.apikey+"&longUrl=" + objSns.longURL + "&format=json&callback=?",
+		  dataType:'json',
+		  timeout :6000,
+		  error : function(request,status,error){
+			  //TODO : handle exception;
+			  return longURL;
+		  } ,
+		  success:function(data){	
+			  return data.data.url;
+		  },
+		  beforeSend : function(){
+				displayPreLoader(true);
+		  },
+		 complete : function(){
+				displayPreLoader(false);
+		  }
+	});
+}
+
+var shareSNS =
+{
+	title: document.title,
+	backUrl: document.location.href,
+	pwWidth: 700,
+	pwHeight: 500,
+	defaultText: '劍靈-台灣官方網站',
+	defaultTwitterVia: '',
+	defaultImageSrc: '',
+	defaultBlockedPopupMessage: '',
+   	facebook: function(title, text, imgsrc , url ) {
+   		this.backUrl = url || location.href;
+   		var parameter =
+		'&p[url]='+this.encode(this.backUrl)+
+		'&p[title]='+this.encode(title || this.title)+
+		'&p[summary]='+this.encode( text || this.defaultText);
+		imgsrc = this.encode( imgsrc || this.defaultImageSrc);
+		if(imgsrc) parameter += '&p[images][0]='+this.encode(imgsrc);
+		this._openWin(
+			'http://www.facebook.com/sharer.php?s=100'+parameter
+		);
+	},
+	twitter: function(text, via, url) { // (https://dev.twitter.com/docs/tweet-button)
+		this.backUrl = url || location.href;
+		text = this.encode( text || this.defaultText);
+		via = this.encode( via || this.defaultTwitterVia);
+		this._openWin(
+			'http://twitter.com/share?url='+this.encode(this.backUrl)+'&text='+text
+		);
+	},
+
+	_openWin: function(url, width, height, noPopup) {
+		var w = width || this.pwWidth, h = height || this.pwHeight,
+		pWin = window.open(url, 'snsWin', noPopup? '': 'width='+w+',height='+h);
+		if(!pWin) alert( this.defaultBlockedPopupMessage );
+		return pWin;
+	},
+	encode: encodeURIComponent
+};
+
+
+
+
+
+function queryString(name){
+	var url = location.href;		
+	var n = location.href.indexOf("?");
+	
+	var qStr = (n != -1) ? url.substring(n + 1) : "";
+	
+	if(!name) {
+		return qStr;
+	} else {
+		var qVal = "";
+		var pars = qStr.split("&");
+		for(var i=0; i<pars.length; i++) {
+			var nameVal = pars[i].split("=");
+			if(nameVal[0] == name) {
+				qVal = nameVal[1];
+				break;
+			}
+		}			
+		return qVal;
+	}
+}
+
+
+
+var commonMessage = {
+
+	friendInfo : "",
+	
+	type : "",
+	
+	
+	reportUser : function(friendId,friendNick,friendAccount,reportDate ){
+		
+		var friendInfo = {
+				friendId : friendId,
+				friendNick : friendNick,
+				friendAccount : friendAccount,
+				reportDate : reportDate
+		};
+		
+		commonMessage.friendInfo = friendInfo;
+		commonMessage.type = "reportUserMsg";
+		
+		if(jQuery.jws.aTokenClient != null){ 
+			jQuery.jws.close();
+		}
+		
+		jQuery.jws.open();
+		
+		return false;
+	},
+	
+	reportUserSuccess : function(){
+		
+		jQuery.jws.aTokenClient.sendToken({
+			ns : jws.WS_SUBPROT_CUSTOM,
+			type: "reportUserMsg",		
+			vsKey :  Leturn.Document.getCookie('_wcvc'),
+			GPVLU : Leturn.Document.getCookie('GPVLU'),
+			targetUserNickName: commonMessage.friendInfo.friendNick,			
+			targetUserId: commonMessage.friendInfo.friendId + '',
+			targetUserAccount : commonMessage.friendInfo.friendAccount,
+			reportDate : commonMessage.friendInfo.reportDate
+		});
+		
+		return false;
+	},
+
+		
+	inviteFriend : function(friendId,friendNick,friendAccount){
+		
+		var friendInfo = {
+				friendId : friendId,
+				friendNick : friendNick,
+				friendAccount : friendAccount				
+		};
+		
+		commonMessage.friendInfo = friendInfo;
+		commonMessage.type = "requestFriend";
+
+		if(jQuery.jws.aTokenClient != null){ 
+			jQuery.jws.close();
+		}
+		jQuery.jws.open();
+		
+		return false;
+	},
+	
+	inviteFriendSuccess : function(){
+		jQuery.jws.aTokenClient.sendToken({
+			ns : jws.WS_SUBPROT_CUSTOM,
+			type: "requestFriend",
+			vsKey :  Leturn.Document.getCookie('_wcvc'),
+			GPVLU : Leturn.Document.getCookie('GPVLU'),
+			msgType : 'F',
+			targetUserNickName: commonMessage.friendInfo.friendNick, 
+			targetUserId: commonMessage.friendInfo.friendId + '',  
+			targetUserAccount : commonMessage.friendInfo.friendAccount  
+		});
+		return false;
+	},
+	
+	reportSpam : function( friendId,friendNick,account,returnUrl ){
+		
+		var friendInfo = {
+				friendId : friendId,
+				friendNick : friendNick,
+				account : account,
+				returnUrl : returnUrl
+		};
+		
+		commonMessage.friendInfo = friendInfo;
+		commonMessage.type = "reportArticle";
+		
+		if(jQuery.jws.aTokenClient != null){ 
+			jQuery.jws.close();
+		}
+		jQuery.jws.open();
+
+		return false;
+	},
+	
+	reportSpamSuccess : function(){
+		jQuery.jws.aTokenClient.sendToken({
+			ns : jws.WS_SUBPROT_CUSTOM,
+			type: "reportArticle",
+			vsKey :  Leturn.Document.getCookie('_wcvc'),
+			GPVLU : Leturn.Document.getCookie('GPVLU'),
+			targetUserNickName: commonMessage.friendInfo.friendNick,
+			targetUserId: commonMessage.friendInfo.friendId + '',
+			pro_account : commonMessage.friendInfo.account,
+			returnUrl : commonMessage.friendInfo.returnUrl
+		});
+		return false;
+	},
+	
+
+	
+	
+	openMessageForm : function(friendInfo){
+		
+		commonMessage.friendInfo = friendInfo;
+		commonMessage.type = "getMessageHistory";
+		
+		if(jQuery.jws.aTokenClient != null){ 
+			jQuery.jws.close();
+		}
+		jQuery.jws.open();
+		
+		return false;
+	},
+	
+	openMessageFormSuccess : function(){
+		var friendId = commonMessage.friendInfo.friendId;
+		if(jQuery("[id='targetUserId'][value='"+friendId +"']").size() > 0 )
+			return false;
+	
+		jQuery.jws.aTokenClient.sendToken({
+			ns : jws.WS_SUBPROT_CUSTOM,
+			type: "getMessageHistory",
+			friendId : friendId,
+			vsKey : jwsUtils._wcvc,
+			GPVLU : jwsUtils.GPVLU
+		});
+	},
+	
+	
+	subscription : function(friendId,friendNick,friendAccount){
+		
+		var friendInfo = {
+				friendId : friendId,
+				friendNick : friendNick,
+				friendAccount : friendAccount			
+		};
+		
+		commonMessage.friendInfo = friendInfo;
+		commonMessage.type = "send";
+		
+		if(jQuery.jws.aTokenClient != null){ 
+			jQuery.jws.close();
+		}
+		jQuery.jws.open();
+		
+		return false;
+	},
+	
+	subscriptionSuccess : function(){
+		jQuery.jws.aTokenClient.sendToken({
+			ns : jws.WS_SUBPROT_CUSTOM,
+			type : "send",
+			vsKey :  Leturn.Document.getCookie('_wcvc'),
+			GPVLU : Leturn.Document.getCookie('GPVLU'),
+			msgType : 'N',			
+			data : jwsUtils.nickName + " さんが あなたをフォローし始めました。",
+			targetUserId: commonMessage.friendInfo.friendId + '',
+			targetUserNickName:commonMessage.friendInfo.friendNick,			
+			targetUserAccount : commonMessage.friendInfo.friendAccount 
+		});
+		return false;
+	},
+	
+	group_inviteGroup : function(param){
+		var friendInfo =param;
+		
+		commonMessage.friendInfo = friendInfo;
+		commonMessage.type = "inviteGroup";
+		
+		if(jQuery.jws.aTokenClient != null){ 
+			jQuery.jws.close();
+		}
+		jQuery.jws.open();
+		
+		return false;		
+	},
+	
+	group_inviteGroupSuccess : function(){
+		
+		var sendNickname = commonMessage.friendInfo.sendNickname;
+		var groupName = commonMessage.friendInfo.groupName;
+		var message = sendNickname + "さんより あなたを"+ groupName +"グループに招待しました。"+ groupName +"グループに参加しますか？";
+		
+		jQuery.jws.aTokenClient.sendToken({
+			ns : jws.WS_SUBPROT_CUSTOM,
+			vsKey : jwsUtils._wcvc,
+			GPVLU : jwsUtils.GPVLU,
+			
+			type: "inviteGroup",
+			groupNo : commonMessage.friendInfo.groupNo,
+			groupName : commonMessage.friendInfo.groupName,
+			targetUserId :  commonMessage.friendInfo.id,
+			targetUserNickName : commonMessage.friendInfo.nickName,
+			targetUserAccount : commonMessage.friendInfo.account,
+			groupName : commonMessage.friendInfo.groupName,
+			msgType : "G",
+			data : message
+		});	
+		return false;		
+	}
+
+};
+
+
+
+
+function getByteString(input) {
+	var byteLength = 0;
+
+	for (var inx = 0; inx < input.length; inx++) {
+		var oneChar = escape(input.charAt(inx));
+		if (oneChar.length == 1) {
+			byteLength++;
+		} else if (oneChar.indexOf("%u") != -1) {
+			byteLength += 2;
+		} else if (oneChar.indexOf("%") != -1) {
+			byteLength += oneChar.length / 3;
+		}
+	}
+	return byteLength;
+}
+
+
+function getByteStringEndIdx(input) {
+	var byteLength = 0;
+	var inx = 0
+	for (; inx < input.length; inx++) {
+		var oneChar = escape(input.charAt(inx));
+		if (oneChar.length == 1) {
+			byteLength++;
+		} else if (oneChar.indexOf("%u") != -1) {
+			byteLength += 2;
+		} else if (oneChar.indexOf("%") != -1) {
+			byteLength += oneChar.length / 3;
+		}
+
+		if(byteLength >= 500){
+			break;
+		}
+	}
+	return inx;
+}
+
+
+jQuery.fn.showHideContent = function(){
+	
+	jQuery(this).each(function(){
+			var obj = jQuery(this);
+			var content = obj.html();
+			var length  = getByteString(content);
+			var endIdx = getByteStringEndIdx(content);
+			
+			if(length > 500){
+				
+				var showText = content.substring(0,endIdx);
+				var spanText = content.substring(endIdx,content.length);
+				
+				var spanObj = jQuery("<span />").hide().html(spanText);
+				var moreBtn = jQuery('<p class="moreBtnP">... <a href="#" class="linktype1">もっと見る</a></p>');
+				jQuery(obj).html(showText).append(spanObj).append(moreBtn).find(".moreBtnP a").click(function(){
+					var div = jQuery(this).parents(".content");
+					var span = div.find("span");					
+					if(span.is(":visible")){						 
+						jQuery(this).text('もっと見る');
+						jQuery(span).hide();
+					}else{
+						jQuery(span).show();
+						jQuery(this).text('閉じる');
+					}
+					return false;
+				});
+			}
+	});
+	return this;
+}
+
+
+
+function callSns( url, title , gubun ){
+    //makeShortUrl(url);
+   return  makeShortUrl2(url, title , gubun);
+}
+
+function makeShortUrl2(strURL, title , gubun) {
+	var objSns = {
+			shortner	:	'http://api.bit.ly/v3/shorten',
+			login		:	'janryumon2',
+			apikey		:	'R_68e85604a8b8e46e2930e0665acb9969',
+			longURL	: 	escape(strURL)	
+	};	
+	
+	jQuery.ajax({
+		  type:'GET',
+		  url: objSns.shortner+"?login="+objSns.login+"&apiKey="+objSns.apikey+"&longUrl=" + objSns.longURL + "&format=json&callback=?",
+		  dataType:'json',
+		  timeout :6000,
+		  error : function(request,status,error){
+			  //TODO : handle exception;
+			  goSns(longURL,title,gubun);
+		  } ,
+		  success:function(data){	
+			  goSns(data.data.url,title,gubun);
+		  },
+		  beforeSend : function(){
+				displayPreLoader(true);
+		  },
+		 complete : function(){
+				displayPreLoader(false);
+		  }
+	});
+}
+
+function goSns(_url, title, gubun){
+	var option = "toolbar=yes,directories=yes,status=yes,menubar=yes,resizable=yes,scrollbars=yes";
+	if (gubun == 2) {		
+		window.open('http://twitter.com/home?status='+  encodeURIComponent(title)+ " " + encodeURIComponent(_url), 'twitter', option + ',width=426,height=336')
+	} else if (gubun == 1) {
+		window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(_url) + "&title="+ encodeURIComponent(title), 'facebook', option + ',width=426,height=336');
+	}
+}
+
+
+var callImgViewer = function(/*DOM Object*/_selector, /*Boolean*/_isOne, /*int*/ _flag) {
+	var sel;
+	var imgList;
+	
+	
+	if (_selector != null && _selector != undefined && _selector != 'null' && _selector != 'undefined' && _selector != '' ) {
+		sel = _selector;
+	}
+	
+	if (_flag == 0) {
+		
+		//pncImageViewer.show(jQuery(_selector).attr("src"), jQuery(_selector));
+		
+		var src = jQuery(_selector).attr("src");
+		var ori_img = (jQuery(_selector).attr("src")).replace("thumbnail/", "view/");
+		var thum_img = (jQuery(_selector).attr("src")).replace("view/", "thumbnail/");
+
+    if (src.match(/^http:\/\/static.ncsoft.jp\/images\/temp\//gi)) {  //1304追加
+      ori_img = (jQuery(_selector).attr("src")).replace("_thumb.jpg", ".jpg");
+      thum_img = ori_img.replace(".jpg", "_thumb.jpg");  //良く分からないが上記仕様に合わせている
+    }
+//		alert(src + "\n" + ori_img + "\n" + thum_img);
+		
+		pncImageViewer.show(ori_img, [ori_img], [thum_img]);
+		return;
+				
+	} else {
+
+		if (_flag != null && _flag != undefined && _flag != 'null' && _flag != 'undefined' && _flag != '' ) {
+			_flag = Number(_flag);
+			switch (_flag) {
+				case 1 :	
+					sel = jQuery(".view_body img[src*='upload.ncsoft.jp'], .view_body img[src*='ncsoft.jp/upload']");
+					break;
+				default :
+					sel = _selector;
+			}
+		} else {
+			sel = _selector;
+		}
+		if (sel) {
+			sel.bind("click", function () {
+				
+				if (_isOne) {
+					imgList = jQuery(this);
+				} else {
+					imgList = sel;
+				}
+				pncImageViewer.show(jQuery(this).attr("src"), imgList);
+			});
+		}
+	}
+};
+
+
+var checkByServiceCd = {
+	getMaintenance : function(_serviceCd, _redirectUrl, _isOpen) {
+		
+		try{
+			var url = "/common/commonCheck/ajaxIsServiceMaintenance"; 
+			var _data = "serviceCode="+_serviceCd;
+
+
+			var result = jQuery.ajax({
+				type: "POST",
+				url: url,
+				data: _data,
+				async:false
+			}).responseText;
+
+
+			var jsonData = jQuery.parseJSON(result);
+
+			if (jsonData.isMaintenance) {
+				setSMELayer(jsonData.message,"",true);
+			} else {
+				if (_isOpen) {
+					return true;
+				}
+
+				loadContent(_redirectUrl);
+			}
+
+			return false;
+		}catch(e){
+			return true;
+		}
+
+	}
+}; 
+
+//consoleの消し忘れ対応
+if (!('console' in window)) {
+  window.console = {};
+  window.console.log = function(str){
+    return str;
+  };
+}
+
+//ingameでGnbを消す
+if(window !== window.parent){
+    $(window).on('load',function() {
+        $('#nctGnb').hide();
+        $('.snsList').hide();
+        $('#header').hide();
+        $('#footer').hide();
+        $('.footerMenu a').hide();
+        $('#nctFooter .logo').hide();
+        $('#content').css({'margin-top' : '-130px'});
+        $('.contentElement .contentElementHead').css({'padding-top':'160px'});
+        $('#news .contentElementBody .bottom_nav').hide();
+        $('#news .contentElementBody:last-child').hide();
+    });
+}
+//1311コミュニティページに最初訪れた時に表示
+/* jQuery(window).load(function(){
+  var d = new Date();
+  if (Number("" + d.getFullYear() + d.getMonth() + d.getDate()) > 20131119) { //2013.12.19以降は表示しない
+    return false;
+  }
+
+  //カテゴリ community newsboard profile のみ表示する
+  var chkPath = function() {
+    var pathname = window.location.pathname,
+        hash =  window.location.hash;
+    
+    if (pathname.match(/^\/community\//gi) || hash.match(/^#!\/community\//gi)) {
+      return true;
+    } else if (pathname.match(/^\/newsboard\//gi) || hash.match(/^#!\/newsboard\//gi)) {
+      return true;
+    } else if (pathname.match(/^\/profile\//gi) || hash.match(/^#!\/profile\//gi)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  if (!chkPath()) {
+    return false;
+  }
+
+  var enableCookie;
+  jQuery.cookie("testCookie", true);
+  if(jQuery.cookie("testCookie")){
+    enableCookie = true;
+    jQuery.cookie("testCookie", null);
+  } else {
+    enableCookie = false;
+  }
+  
+  var cookieName = "gauge";
+  
+  if(enableCookie && !jQuery.cookie(cookieName)){
+    try{
+      popupLayer.alert("期間限定の特典をゲットしよう！", "期間：12月24日まで<br><br>年末までにお得な特典がゲットできるチャンス！<br>ゲージ交換ポイントを一括ゲージ交換すると、お得な特典をゲットできます。<br>久しぶりに訪問された方は、ゲージ交換ポイントが残っていないか、<a href='http://event2.ncsoft.jp/gauge1311/index' style='text-decoration:underline;'>今すぐチェック！</a>");
+      jQuery.cookie(cookieName, true, {expires : 365, path : "/", domain : "www.ncsoft.jp"});
+    }catch(e){
+      throw "error : cookieが書き込めません";
+    }
+  }
+
+
+});*/

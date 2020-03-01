@@ -1,0 +1,249 @@
+// Avoid `console` errors in browsers that lack a console.
+(function() {
+    var method;
+    var noop = function () {};
+    var methods = [
+        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+        'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+
+    while (length--) {
+        method = methods[length];
+
+        // Only stub undefined methods.
+        if (!console[method]) {
+            console[method] = noop;
+        }
+    }
+}());
+
+
+if (typeof NCJAPP === "undefined") {
+    var NCJAPP = {};
+}
+
+(function($){
+
+    $(function(){
+        //メニュー調整
+
+        console.log(true)
+
+        var bindFlag =  0,
+            $header =   $("#header"),
+            $mainMenuArea = $("#mainMenuArea"),
+            $mainMenuList = $(".main > li", $mainMenuArea),
+            $subMenuList,
+            $logo =     $(".logoArea", $header),
+            nowYPos =   $(window).scrollTop();
+
+        //メニュー横位置調整(fixed対応)
+        var winLeftScroll = function () {
+            function setMenuLeft() {
+                $header.css("left",-($(window).scrollLeft()) + "px");
+            }
+            if($(window).width() < 1170){
+                if(bindFlag === 0){
+                    $(window).bind("scroll.hoge1",setMenuLeft);
+                    bindFlag = 1;
+                }
+            }else{
+                if(bindFlag === 1){
+                    $(window).unbind("scroll.hoge1");
+                    bindFlag = 0;
+                }
+                $header.css("left","auto");
+            }
+        }
+
+        $(window).resize(function(){
+            winLeftScroll();
+        });
+
+        winLeftScroll();
+
+        //メニュー上げ下げ　class操作のみ　アニメはcss3
+        var menuFlag = 1;
+        var isIE8 = (function(){
+                return $("html").hasClass("lt-ie9");
+            }());
+
+        if (!isIE8) {
+            var winScroll = function() {
+                var top = $(window).scrollTop();
+                diffYPos = nowYPos - top;
+                nowYPos = top;
+
+				if($('body').height() - $(window).height() - top <1) return;
+
+                if (diffYPos < 0 && top > 0) { //下方向
+                    if (menuFlag === 0) {
+                        return;
+                    }
+
+                    chgMainMenu("small", function(){});
+
+                } else { //上方向
+                    if (menuFlag === 1) {
+                        return;
+                    }
+
+                    chgMainMenu("big", function(){});
+
+                }
+            }
+
+            var chgMainMenu = function(str) {
+                if (str === "big") {
+                    $mainMenuArea.removeClass("small");
+                    $("#pwHeader .ncGnb").removeClass("small");
+                    $logo.removeClass("mini");
+                    menuFlag = 1;
+
+                } else { //small
+                    $mainMenuArea.addClass("small");
+                    $("#pwHeader .ncGnb").addClass("small");
+                    $logo.addClass("mini");
+                    menuFlag = 0;
+
+                }
+            }
+
+            $(window).scroll(function(){
+                winScroll();
+            });
+        }
+
+
+        //メニューロールオーバー設定
+        $mainMenuList.mouseenter(function(){
+            $mainMenuList.filter(".current").addClass("hide");
+        });
+        $mainMenuList.mouseleave(function(){
+            $mainMenuList.removeClass("hide");
+        });
+
+        NCJAPP.setMainMenu = function(str1, str2) {
+            var currentMain;
+            if (str1) {
+                currentMain = $mainMenuList.filter("." + str1);
+                currentMain.addClass("current");
+                if (str2) {
+                    currentMain.find("li." + str2).addClass("current");
+                }
+            }
+        };
+
+        NCJAPP.setMovie = function(context, width, height, eachMovie, youtubeOption) {
+            var oldContext = context;
+            if (!context instanceof jQuery) {
+                context = $(context);
+            }
+            context.bind("click", function(e){
+                var controllerHeight = 25, //動画プレイヤーコントローラーの高さ
+                    closeHeight = 56, //closeボタンの高さ
+                    winHeight = 0,
+                    winWidth =  0,
+                    movieAreaHeight = 0,
+                    ratio =     0,
+                    $bgLayer =  $("<div id='ncjappMovieBgLayer' class='hide'></div>"),
+                    $moveArea = $("<div id='ncjappMovieArea' class='hide'></div>"),
+                    $object,
+                    $close =    $("<p class='ncjappMovieClose'>閉じる</p>"),
+                    frag =      document.createDocumentFragment(),
+                    isYoutube = false,
+                    youtubeOpt = "",
+                    i, len, str;
+
+                var n = $(".playBtn").index(this);
+                var moviePath = eachMovie[n];
+
+                if (moviePath.search(/www\.youtube\.com/i) !== -1) {
+                    isYoutube = true;
+                }
+                if (isYoutube === true) {
+                    movieAreaHeight = height;
+                    i = 0;
+                    for (key in youtubeOption) {
+                        if (i === 0) {
+                            str = "?";
+                        } else {
+                            str = "&";
+                        }
+                        youtubeOpt += (str + key + "=" + youtubeOption[key]);
+                        i += 1;
+                    }
+                    $object = $("<iframe width='" + width + "' height='" + height + "' src='" + moviePath + youtubeOpt + "' frameborder='0' allowfullscreen></iframe>")
+                } else {
+                    movieAreaHeight = height + controllerHeight;
+                    $object = $("<object width='" + width + "' height='" + movieAreaHeight + "' id='ncjappMovie' align='middle' classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0'>\
+                                    <param name='movie' value='http://image.tw.ncsoft.com/bns/pc/new/swf/player" + width + "_" + height + ".swf'>\
+                                    <param name='wmode' value='transparent'>\
+                                    <param name='allowscriptaccess' value='always'>\
+                                    <param name='allowFullScreen' value='true'>\
+                                    <param name='flashVars' value='moviePath=" + moviePath + "'>\
+                                    <param name='quality' value='high'>\
+                                    <embed src='http://image.tw.ncsoft.com/bns/pc/new/swf/player" + width + "_" + height + ".swf' width='" + width + "' height='" + movieAreaHeight + "' name='ncjappMovie' type='application/x-shockwave-flash' wmode='transparent' allowscriptaccess='always' allowFullScreen='true' flashVars='moviePath=" + moviePath + "' pluginspage='http://www.macromedia.com/go/getflashplayer' align='middle'>\
+                                </object>");
+
+                }
+
+                $close.appendTo($moveArea);
+                $object.appendTo($moveArea);
+                frag.appendChild($bgLayer[0]);
+                frag.appendChild($moveArea[0]);
+                $moveArea.css({"width": width + "px", "height": movieAreaHeight +  "px"})
+                document.getElementsByTagName("body")[0].appendChild(frag);
+                setTimeout(function(){$bgLayer.removeClass("hide"); $moveArea.removeClass("hide");}, 10);
+                //setTimeout(function(){$moveArea.append($object);}, 500);
+
+                var closeMovie = function(){
+                    $bgLayer.addClass("hide");
+                    $moveArea.addClass("hide");
+                    setTimeout(function(){$object.remove(); $moveArea.remove(); $bgLayer.remove();}, 1000)
+                };
+
+                function setPosition() {
+                    winHeight = $(window).height();
+                    winWidth = $(window).width();
+
+                    var x = (winWidth - width) / 2;
+                    var y = (winHeight - movieAreaHeight) / 2;
+                    if (x < 0) {
+                        x = 0;
+                    }
+                    if (y < closeHeight) {
+                        y = closeHeight;
+                    }
+                    $moveArea.css({"top": y + "px", "left": x + "px"});
+                };
+
+                function init() {
+                    setPosition();
+                }
+
+                $bgLayer.bind("click", function(){
+                    closeMovie();
+                });
+                $close.bind("click", function(){
+                    closeMovie();
+                });
+                $(window).resize(function(){
+                    setPosition();
+                });
+
+                init();
+
+
+            });
+            return oldContext;
+        };
+
+    });
+}(jQuery));
+
+
